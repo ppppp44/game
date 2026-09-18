@@ -1510,5 +1510,22 @@
     <!-- Original Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@main/searchbut.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@main/games.js"></script>
+    
+    <script>
+    function removeCLFromVisibleNames() {
+    document.querySelectorAll('input[type="button"]').forEach(btn => {
+        if (typeof btn.value === 'string' && btn.value.startsWith('cl')) {
+            btn.value = btn.value.slice(2);
+        }
+    });
+}
+
+    new MutationObserver(removeCLFromVisibleNames).observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+    removeCLFromVisibleNames();
+</script>
 </body>
 </html>
