@@ -50,6 +50,52 @@
             --aurora-4: rgba(255, 180, 150, 0.05);
         }
 
+        [data-theme="cyberpunk"] {
+            --primary-color: #FF1493;
+            --primary-light: #1E90FF;
+            --primary-dark: #d10070;
+            --secondary-color: #00FF7F;
+            --accent-color: #00FF7F;
+            --success-color: #00FF7F;
+            --warning-color: #ffb800;
+            --danger-color: #ff0055;
+            --bg-dark: #12181B;
+            --bg-darker: #0a0d0e;
+            --bg-card: #192226;
+            --bg-light: #212c31;
+            --text-primary: #F0F6F0;
+            --text-secondary: rgba(240, 246, 240, 0.7);
+            --text-tertiary: rgba(240, 246, 240, 0.5);
+            --border-color: rgba(30, 144, 255, 0.4);
+            --aurora-1: rgba(255, 20, 147, 0.15);
+            --aurora-2: rgba(30, 144, 255, 0.15);
+            --aurora-3: rgba(0, 255, 127, 0.1);
+            --aurora-4: rgba(255, 20, 147, 0.1);
+        }
+
+        [data-theme="midnight"] {
+            --primary-color: #FF5C00;
+            --primary-light: #ff792e;
+            --primary-dark: #cc4a00;
+            --secondary-color: #FFBF00;
+            --accent-color: #FFBF00;
+            --success-color: #00d287;
+            --warning-color: #FFBF00;
+            --danger-color: #ff3333;
+            --bg-dark: #0B0F19;
+            --bg-darker: #05080d;
+            --bg-card: #1A2238;
+            --bg-light: #232d4a;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-tertiary: rgba(255, 255, 255, 0.5);
+            --border-color: rgba(255, 92, 0, 0.3);
+            --aurora-1: rgba(255, 92, 0, 0.15);
+            --aurora-2: rgba(255, 191, 0, 0.1);
+            --aurora-3: rgba(255, 92, 0, 0.08);
+            --aurora-4: rgba(255, 191, 0, 0.08);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -220,7 +266,7 @@
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="6" fill="%235986da" opacity="0.6"/><circle cx="16" cy="16" r="10" fill="none" stroke="%235986da" stroke-width="1" opacity="0.4"/></svg>') 16 16, auto;
         }
 
-        a, button, input[type="button"] {
+        a, button, input[type="button"], select {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%235986da" opacity="0.8"/><circle cx="16" cy="16" r="12" fill="none" stroke="%235986da" stroke-width="1.5" opacity="0.5"/></svg>') 16 16, pointer;
         }
 
@@ -557,62 +603,36 @@
             animation: fadeIn 0.8s ease-out 2.7s backwards;
         }
 
-        /* ===== DARK MODE TOGGLE ===== */
-        .theme-toggle {
-            position: relative;
-            width: 70px;
-            height: 38px;
-            background: rgba(89, 134, 218, 0.2);
+        /* ===== THEME SELECTOR ===== */
+        .theme-selector {
+            background: rgba(89, 134, 218, 0.15);
             border: 2px solid var(--primary-color);
-            border-radius: 25px;
+            border-radius: 12px;
+            color: var(--text-primary);
+            padding: 10px 18px;
+            font-family: 'Pixelify Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            display: flex;
-            align-items: center;
-            padding: 4px;
+            outline: none;
             box-shadow: var(--shadow-md);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            appearance: none;
+            -webkit-appearance: none;
+            text-align: center;
+            min-width: 160px;
         }
 
-        .theme-toggle:hover {
+        .theme-selector:hover {
             background: rgba(89, 134, 218, 0.3);
             box-shadow: 0 0 25px rgba(89, 134, 218, 0.5);
             transform: scale(1.05);
         }
 
-        .theme-toggle.light {
-            background: rgba(255, 217, 61, 0.15);
-            border-color: var(--accent-color);
-        }
-
-        .theme-toggle.light:hover {
-            box-shadow: 0 0 25px rgba(255, 217, 61, 0.5);
-        }
-
-        .toggle-circle {
-            width: 30px;
-            height: 30px;
-            background: var(--primary-light);
-            border-radius: 50%;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .theme-toggle.light .toggle-circle {
-            background: var(--accent-color);
-            transform: translateX(32px);
-            box-shadow: 0 2px 8px rgba(255, 217, 61, 0.4);
-        }
-
-        .toggle-icon {
-            width: 18px;
-            height: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+        .theme-selector option {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-weight: 500;
         }
 
         /* ===== SEARCH & FILTER ===== */
@@ -1225,35 +1245,12 @@
                 <div class="header-subtitle">Explore the Ultimate Game Stash Collection</div>
                 
                 <div class="header-controls">
-                    <div class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
-                        <div class="toggle-circle">
-                            <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <!-- Dark mode icon (moon) -->
-                                <defs>
-                                    <style>
-                                        .toggle-dark { display: block; }
-                                        [data-theme="light"] .toggle-dark { display: none; }
-                                        .toggle-light { display: none; }
-                                        [data-theme="light"] .toggle-light { display: block; }
-                                    </style>
-                                </defs>
-                                <g class="toggle-dark">
-                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" fill="none"/>
-                                </g>
-                                <g class="toggle-light" fill="currentColor">
-                                    <circle cx="12" cy="12" r="5"/>
-                                    <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor"/>
-                                    <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor"/>
-                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor"/>
-                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor"/>
-                                    <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor"/>
-                                    <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor"/>
-                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor"/>
-                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor"/>
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
+                    <select id="themeSelector" class="theme-selector" title="Select Theme" aria-label="Select Theme">
+                        <option value="dark">Default Dark</option>
+                        <option value="light">Light Mode</option>
+                        <option value="cyberpunk">Cyberpunk Neon</option>
+                        <option value="midnight">Midnight Arcade</option>
+                    </select>
                 </div>
 
                 <div class="header-links">
@@ -1382,8 +1379,8 @@
             updateActiveSection();
         }, { passive: true });
 
-        // ===== DARK MODE TOGGLE WITH AURORA COLORS =====
-        const themeToggle = document.getElementById('themeToggle');
+        // ===== THEME SELECTOR =====
+        const themeSelector = document.getElementById('themeSelector');
         const html = document.documentElement;
         const savedTheme = localStorage.getItem('theme') || 'dark';
 
@@ -1391,18 +1388,15 @@
             html.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
             
-            if (theme === 'light') {
-                themeToggle.classList.add('light');
-            } else {
-                themeToggle.classList.remove('light');
+            if (themeSelector) {
+                themeSelector.value = theme;
             }
             
-            // Update aurora colors dynamically
             updateAuroraColors(theme);
         }
 
         function updateAuroraColors(theme) {
-            // Colors are already updated via CSS variables in [data-theme="light"]
+            // Colors are already updated via CSS variables
             // This ensures smooth transitions
             document.documentElement.style.transition = 'all 0.5s ease';
             setTimeout(() => {
@@ -1412,12 +1406,20 @@
 
         setTheme(savedTheme);
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-            showToast(newTheme === 'light' ? '☀️ Light mode activated!' : '🌙 Dark mode activated!', 'success');
-        });
+        if (themeSelector) {
+            themeSelector.addEventListener('change', (e) => {
+                const newTheme = e.target.value;
+                setTheme(newTheme);
+                
+                let icon = '🎨';
+                if (newTheme === 'light') icon = '☀️';
+                else if (newTheme === 'dark') icon = '🌙';
+                else if (newTheme === 'cyberpunk') icon = '⚡';
+                else if (newTheme === 'midnight') icon = '👾';
+                
+                showToast(`${icon} Theme updated!`, 'success');
+            });
+        }
 
         // ===== BACK TO TOP BUTTON =====
         const backToTopBtn = document.getElementById('backToTop');
