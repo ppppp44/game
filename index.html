@@ -33,7 +33,6 @@
             --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
-        /* Explicit data-theme="dark" identical to :root for proper component rendering */
         [data-theme="dark"] {
             --primary-color: #5986da;
             --primary-light: #79aadb;
@@ -379,7 +378,6 @@
             position: relative;
         }
 
-        /* ===== AURORA BACKGROUND ===== */
         .aurora-bg {
             position: fixed;
             top: 0;
@@ -454,7 +452,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* ===== CUSTOM CURSOR ===== */
         body {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="6" fill="%235986da" opacity="0.6"/><circle cx="16" cy="16" r="10" fill="none" stroke="%235986da" stroke-width="1" opacity="0.4"/></svg>') 16 16, auto;
         }
@@ -463,7 +460,6 @@
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="%235986da" opacity="0.8"/><circle cx="16" cy="16" r="12" fill="none" stroke="%235986da" stroke-width="1.5" opacity="0.5"/></svg>') 16 16, pointer;
         }
 
-        /* ===== SPLASH SCREEN ===== */
         .splash-screen {
             position: fixed;
             top: 0;
@@ -546,7 +542,6 @@
             100% { transform: translateY(0); opacity: 1; }
         }
 
-        /* ===== MAIN APP ===== */
         .app-wrapper {
             width: 100%;
             min-height: 100vh;
@@ -559,7 +554,6 @@
             100% { opacity: 1; }
         }
 
-        /* ===== SIDEBAR ===== */
         .sidebar {
             position: fixed;
             left: 0;
@@ -584,18 +578,9 @@
             100% { transform: translateX(0); opacity: 1; }
         }
 
-        .sidebar::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .sidebar::-webkit-scrollbar-thumb {
-            background: rgba(89, 134, 218, 0.4);
-            border-radius: 3px;
-        }
-
-        .sidebar::-webkit-scrollbar-thumb:hover {
-            background: rgba(89, 134, 218, 0.7);
-        }
+        .sidebar::-webkit-scrollbar { width: 6px; }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(89, 134, 218, 0.4); border-radius: 3px; }
+        .sidebar::-webkit-scrollbar-thumb:hover { background: rgba(89, 134, 218, 0.7); }
 
         .sidebar-btn {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
@@ -632,15 +617,9 @@
             background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
         }
 
-        .sidebar-btn:hover::before {
-            left: 100%;
-        }
+        .sidebar-btn:hover::before { left: 100%; }
+        .sidebar-btn:active:not(.empty) { transform: translateY(-1px) scale(1.02); }
 
-        .sidebar-btn:active:not(.empty) {
-            transform: translateY(-1px) scale(1.02);
-        }
-
-        /* ===== SIDEBAR PROGRESS INDICATOR ===== */
         .sidebar-progress {
             position: absolute;
             left: 50%;
@@ -653,7 +632,6 @@
             border-radius: 1px;
         }
 
-        /* ===== ACTIVE SECTION HIGHLIGHT ===== */
         .sidebar-btn.active {
             background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-color) 100%);
             box-shadow: 0 0 20px var(--primary-color), 0 8px 25px rgba(89, 134, 218, 0.5);
@@ -662,19 +640,12 @@
         }
 
         @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 0 20px var(--primary-color), 0 8px 25px rgba(89, 134, 218, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 30px var(--primary-color), 0 8px 35px rgba(89, 134, 218, 0.7);
-            }
+            0%, 100% { box-shadow: 0 0 20px var(--primary-color), 0 8px 25px rgba(89, 134, 218, 0.5); }
+            50% { box-shadow: 0 0 30px var(--primary-color), 0 8px 35px rgba(89, 134, 218, 0.7); }
         }
 
-        .sidebar-btn.active:hover {
-            transform: scale(1.15);
-        }
+        .sidebar-btn.active:hover { transform: scale(1.15); }
 
-        /* ===== MAIN CONTENT ===== */
         .main-content {
             margin-left: 100px;
             flex: 1;
@@ -689,20 +660,10 @@
             100% { transform: translateY(0); opacity: 1; }
         }
 
-        .main-content::-webkit-scrollbar {
-            width: 10px;
-        }
+        .main-content::-webkit-scrollbar { width: 10px; }
+        .main-content::-webkit-scrollbar-thumb { background: rgba(89, 134, 218, 0.4); border-radius: 5px; }
+        .main-content::-webkit-scrollbar-thumb:hover { background: rgba(89, 134, 218, 0.7); }
 
-        .main-content::-webkit-scrollbar-thumb {
-            background: rgba(89, 134, 218, 0.4);
-            border-radius: 5px;
-        }
-
-        .main-content::-webkit-scrollbar-thumb:hover {
-            background: rgba(89, 134, 218, 0.7);
-        }
-
-        /* ===== HEADER ===== */
         .header {
             position: sticky;
             top: 0;
@@ -779,13 +740,8 @@
             transition: width 0.3s ease;
         }
 
-        .header-link-item a:hover {
-            color: var(--accent-color);
-        }
-
-        .header-link-item a:hover::after {
-            width: 100%;
-        }
+        .header-link-item a:hover { color: var(--accent-color); }
+        .header-link-item a:hover::after { width: 100%; }
 
         .header-controls {
             display: flex;
@@ -797,7 +753,6 @@
             flex-wrap: wrap;
         }
 
-        /* ===== THEME SELECTOR & TOGGLES ===== */
         .theme-selector {
             background: rgba(89, 134, 218, 0.15);
             border: 2px solid var(--primary-color);
@@ -823,13 +778,6 @@
             transform: scale(1.05);
         }
 
-        .theme-selector option {
-            background: var(--bg-card);
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        /* ===== SEARCH & FILTER ===== */
         .search-container {
             display: flex;
             justify-content: center;
@@ -854,9 +802,7 @@
             font-family: 'Pixelify Sans', sans-serif;
         }
 
-        #searchInput::placeholder {
-            color: var(--text-tertiary);
-        }
+        #searchInput::placeholder { color: var(--text-tertiary); }
 
         #searchInput:focus {
             outline: none;
@@ -901,15 +847,9 @@
             background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
         }
 
-        #lolbutton:hover::before {
-            left: 100%;
-        }
+        #lolbutton:hover::before { left: 100%; }
+        #lolbutton:active { transform: translateY(-1px); }
 
-        #lolbutton:active {
-            transform: translateY(-1px);
-        }
-
-        /* ===== LETTER SECTIONS ===== */
         .letter-section {
             margin-bottom: 50px;
             padding: 35px;
@@ -947,25 +887,11 @@
             transform: translateY(-2px);
         }
 
-        .letter-section:hover::before {
-            opacity: 1;
-        }
+        .letter-section:hover::before { opacity: 1; }
 
         @keyframes fadeInScale {
             0% { opacity: 0; transform: scale(0.95); }
             100% { opacity: 1; transform: scale(1); }
-        }
-
-        .letter-section:nth-child(1) { animation-delay: 2.8s; }
-        .letter-section:nth-child(2) { animation-delay: 2.95s; }
-        .letter-section:nth-child(3) { animation-delay: 3.1s; }
-        .letter-section:nth-child(4) { animation-delay: 3.25s; }
-        .letter-section:nth-child(5) { animation-delay: 3.4s; }
-
-        .letter-section.empty {
-            opacity: 0.4;
-            border-color: transparent;
-            background: rgba(15, 15, 30, 0.08);
         }
 
         .letter-header {
@@ -998,10 +924,15 @@
             font-style: italic;
             text-align: center;
             padding: 40px 20px;
-            font-size: 14px;
+            font-size: 16px;
             position: relative;
+            background: rgba(15, 15, 30, 0.15);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            max-width: 650px;
+            margin: 0 auto 50px;
         }
-
+        
         .empty-message::before {
             content: '✨';
             display: block;
@@ -1049,15 +980,9 @@
             border-color: var(--primary-color);
         }
 
-        input[type="button"]:hover::before {
-            left: 100%;
-        }
+        input[type="button"]:hover::before { left: 100%; }
+        input[type="button"]:active { transform: translateY(-1px); }
 
-        input[type="button"]:active {
-            transform: translateY(-1px);
-        }
-
-        /* ===== BACK TO TOP BUTTON ===== */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -1084,42 +1009,8 @@
             box-shadow: 0 12px 40px rgba(89, 134, 218, 0.6);
         }
 
-        .back-to-top:active {
-            transform: translateY(-2px) scale(1.05);
-        }
+        .back-to-top:active { transform: translateY(-2px) scale(1.05); }
 
-        /* ===== TOOLTIP ===== */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            border-radius: 8px;
-            padding: 8px 12px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -50px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            white-space: nowrap;
-            font-size: 12px;
-            font-weight: 600;
-            box-shadow: var(--shadow-md);
-        }
-
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        /* ===== NOTIFICATIONS ===== */
         .toast-notification {
             position: fixed;
             bottom: 100px;
@@ -1143,7 +1034,6 @@
             100% { transform: translateX(0); opacity: 1; }
         }
 
-        /* ===== MODALS ===== */
         .modal {
             display: none;
             position: fixed;
@@ -1219,11 +1109,8 @@
             color: var(--text-primary);
         }
 
-        .modal-btn.secondary:hover {
-            background: rgba(89, 134, 218, 0.2);
-        }
+        .modal-btn.secondary:hover { background: rgba(89, 134, 218, 0.2); }
 
-        /* ===== THEME OVERLAY SPECIFICS ===== */
         #themeModal .modal-content {
             max-width: 900px;
             max-height: 90vh;
@@ -1258,9 +1145,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--primary-color);
         }
 
-        .theme-card-container:hover:not(.selected) {
-            transform: translateY(-5px);
-        }
+        .theme-card-container:hover:not(.selected) { transform: translateY(-5px); }
 
         .theme-card {
             background: var(--bg-card);
@@ -1296,7 +1181,6 @@
             font-family: 'Pixelify Sans', sans-serif;
         }
 
-        /* ===== FOOTER ===== */
         footer {
             background: rgba(20, 20, 40, 0.5);
             border-top: 1px solid var(--border-color);
@@ -1327,34 +1211,10 @@
             font-weight: 600;
         }
 
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
+        .footer-links a:hover { color: var(--accent-color); }
+        .footer-divider { height: 1px; background: var(--border-color); margin: 20px 0; }
+        .footer-bottom { font-size: 12px; color: var(--text-tertiary); }
 
-        .footer-divider {
-            height: 1px;
-            background: var(--border-color);
-            margin: 20px 0;
-        }
-
-        .footer-bottom {
-            font-size: 12px;
-            color: var(--text-tertiary);
-        }
-
-        /* ===== LOADING SKELETON ===== */
-        .skeleton {
-            background: linear-gradient(90deg, rgba(89, 134, 218, 0.1) 25%, rgba(89, 134, 218, 0.2) 50%, rgba(89, 134, 218, 0.1) 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-        }
-
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        /* ===== PERFORMANCE MODE OPTIMIZATIONS ===== */
         body.performance-mode .aurora-layer,
         body.performance-mode .floating-orb,
         body.performance-mode .animated-gradient {
@@ -1393,9 +1253,7 @@
 
         body.performance-mode .sidebar-btn.active,
         body.performance-mode .empty-message::before,
-        body.performance-mode .dot {
-            animation: none !important;
-        }
+        body.performance-mode .dot { animation: none !important; }
 
         body.performance-mode .sidebar-btn,
         body.performance-mode .sidebar-btn:hover,
@@ -1407,16 +1265,12 @@
         body.performance-mode input[type="button"]:hover,
         body.performance-mode .letter-section:hover,
         body.performance-mode .theme-card-container.selected,
-        body.performance-mode .theme-card-container:hover {
-            transform: none !important;
-        }
+        body.performance-mode .theme-card-container:hover { transform: none !important; }
 
         body.performance-mode .sidebar-btn::before,
         body.performance-mode #lolbutton::before,
         body.performance-mode input[type="button"]::before,
-        body.performance-mode .letter-section::before {
-            display: none !important;
-        }
+        body.performance-mode .letter-section::before { display: none !important; }
 
         body.performance-mode .sidebar-btn,
         body.performance-mode .sidebar-progress,
@@ -1426,11 +1280,55 @@
         body.performance-mode input[type="button"],
         body.performance-mode .letter-header,
         body.performance-mode .theme-selector,
-        body.performance-mode .theme-card-container {
-            transition: none !important;
+        body.performance-mode .theme-card-container,
+        body.performance-mode .fav-star { transition: none !important; }
+
+        /* ===== NEW FEATURE STYLES ===== */
+        .game-btn-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* Ensure input inside wrapper fills wrapper space safely */
+        .game-btn-wrapper input[type="button"] {
+            width: 100%;
+            max-width: 100%;
+            padding-right: 60px; /* Make room for the star */
+        }
+
+        .fav-star {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--accent-color);
+            font-size: 18px;
+            cursor: pointer;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 10;
+        }
+
+        .fav-star:hover {
+            transform: translateY(-50%) scale(1.15);
+            background: rgba(0,0,0,0.4);
+            border-color: var(--accent-color);
+        }
+
+        .fav-star.active {
+            text-shadow: 0 0 10px var(--accent-color);
+            background: rgba(255, 217, 61, 0.15);
+        }
+
         @media (max-width: 768px) {
             .sidebar { width: 70px; padding: 15px 5px; gap: 8px; }
             .sidebar-btn { padding: 10px; font-size: 16px; min-height: 45px; }
@@ -1463,7 +1361,6 @@
     </style>
 </head>
 <body>
-    <!-- Aurora Background with Gradient Meshes and Floating Orbs -->
     <div class="aurora-bg">
         <div class="aurora-layer"></div>
         <div class="aurora-layer"></div>
@@ -1476,7 +1373,6 @@
     </div>
     <div class="animated-gradient"></div>
 
-    <!-- Splash Screen -->
     <div class="splash-screen">
         <div class="splash-content">
             <div class="splash-logo">UGS</div>
@@ -1489,14 +1385,12 @@
         </div>
     </div>
 
-    <!-- Main App -->
     <div class="app-wrapper">
         <div class="sidebar" id="sidebar">
             <div class="sidebar-progress" id="sidebarProgress"></div>
         </div>
 
         <div class="main-content">
-            <!-- Header -->
             <div class="header">
                 <h1>UGS Files</h1>
                 <div class="header-subtitle">Explore the Ultimate Game Stash Collection</div>
@@ -1504,6 +1398,9 @@
                 <div class="header-controls">
                     <button id="themeSelectorBtn" class="theme-selector" title="Select Theme" aria-label="Select Theme">🎨 Themes</button>
                     <button id="perfToggle" class="theme-selector" title="Toggle Performance Mode">⚡ Performance: OFF</button>
+                    <button id="favFilterBtn" class="theme-selector" title="View Favorites">⭐ Favorites: OFF</button>
+                    <button id="randomBtn" class="theme-selector" title="Launch a Random Game">🎲 Random Game</button>
+                    <button id="soundToggle" class="theme-selector" title="Toggle UI Sounds">🔊 UI Sounds: ON</button>
                 </div>
 
                 <div class="header-links">
@@ -1522,7 +1419,6 @@
                 </div>
             </div>
 
-            <!-- Search & Filter -->
             <div class="search-container">
                 <div style="width: 100%; text-align: center;">
                     <input type="text" placeholder="Search games..." id="searchInput" aria-label="Search input">
@@ -1534,10 +1430,13 @@
                 </div>
             </div>
 
-            <!-- Content Sections -->
+            <!-- Empty message placeholder for Favorites Mode -->
+            <div id="no-favorites-msg" class="empty-message" style="display: none;">
+                No favorites yet. Click the ⭐ on any game to add it!
+            </div>
+
             <div id="sections-container"></div>
 
-            <!-- Footer -->
             <footer>
                 <div class="footer-content">
                     <div class="footer-links">
@@ -1554,10 +1453,8 @@
         </div>
     </div>
 
-    <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" title="Back to top" aria-label="Scroll back to top">↑</button>
 
-    <!-- Info Modal -->
     <div class="modal" id="infoModal">
         <div class="modal-content">
             <div class="modal-header">🎮 About UGS</div>
@@ -1571,7 +1468,6 @@
         </div>
     </div>
 
-    <!-- Theme Selection Overlay -->
     <div class="modal" id="themeModal">
         <div class="modal-content">
             <div class="modal-header" style="text-align: center;">🎨 Select Theme</div>
@@ -1583,105 +1479,90 @@
                         <div class="theme-name-label">Default Dark</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="light">
                     <div class="theme-card" data-theme="light">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">Light Mode</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="cyberpunk">
                     <div class="theme-card" data-theme="cyberpunk">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">Cyberpunk Neon</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="midnight">
                     <div class="theme-card" data-theme="midnight">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">Midnight Arcade</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="magma">
                     <div class="theme-card" data-theme="magma">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">🌋 Magma Core</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="toxic">
                     <div class="theme-card" data-theme="toxic">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">🧪 Toxic Lab</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="deepspace">
                     <div class="theme-card" data-theme="deepspace">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">🌌 Deep Space</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="arctic">
                     <div class="theme-card" data-theme="arctic">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">🧊 Arctic</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="emerald">
                     <div class="theme-card" data-theme="emerald">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">🌲 Emerald Matrix</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="bubblegum">
                     <div class="theme-card" data-theme="bubblegum">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">🍬 Bubblegum</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="nuclear">
                     <div class="theme-card" data-theme="nuclear">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">☢️ Nuclear</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="bloodmoon">
                     <div class="theme-card" data-theme="bloodmoon">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">🩸 Blood Moon</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="gameboy">
                     <div class="theme-card" data-theme="gameboy">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">🕹️ Game Boy</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="synthwave">
                     <div class="theme-card" data-theme="synthwave">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">👾 Synthwave</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="ps1">
                     <div class="theme-card" data-theme="ps1">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
                         <div class="theme-name-label">🟨 PS1 Menu</div>
                     </div>
                 </div>
-
                 <div class="theme-card-container" data-theme-id="blub">
                     <div class="theme-card" data-theme="blub">
                         <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
@@ -1697,9 +1578,66 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- UI Audio Engine -->
     <script>
-        // ===== PERFORMANCE MODE TOGGLE =====
+        // Web Audio API context setup - created explicitly on first user interaction to bypass autoplay restrictions
+        let audioCtx;
+        
+        let uiSoundsEnabled = localStorage.getItem('uiSoundsEnabled') !== 'false'; // ON by default
+        const soundToggle = document.getElementById('soundToggle');
+        if (soundToggle) soundToggle.textContent = uiSoundsEnabled ? '🔊 UI Sounds: ON' : '🔊 UI Sounds: OFF';
+
+        // Play synthetic tones
+        function playTone(freq, type, duration, vol=0.08) {
+            if (!uiSoundsEnabled) return;
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            
+            gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+            
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        }
+
+        const SoundFx = {
+            hover: () => playTone(800, 'sine', 0.05, 0.01),
+            click: () => playTone(600, 'sine', 0.1, 0.05),
+            themeSelect: () => playTone(450, 'square', 0.08, 0.03),
+            themeConfirm: () => { playTone(500, 'sine', 0.1, 0.05); setTimeout(() => playTone(750, 'sine', 0.2, 0.05), 100); },
+            favOn: () => { playTone(600, 'sine', 0.1, 0.05); setTimeout(() => playTone(900, 'sine', 0.2, 0.06), 100); },
+            favOff: () => { playTone(900, 'sine', 0.1, 0.05); setTimeout(() => playTone(600, 'sine', 0.2, 0.05), 100); },
+            random: () => {
+                for(let i=0; i<6; i++) {
+                    setTimeout(() => playTone(400 + (i*150), 'square', 0.1, 0.03), i*60);
+                }
+            }
+        };
+
+        if (soundToggle) {
+            soundToggle.addEventListener('click', () => {
+                uiSoundsEnabled = !uiSoundsEnabled;
+                localStorage.setItem('uiSoundsEnabled', uiSoundsEnabled);
+                soundToggle.textContent = uiSoundsEnabled ? '🔊 UI Sounds: ON' : '🔊 UI Sounds: OFF';
+                if (uiSoundsEnabled) {
+                    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    SoundFx.click();
+                }
+            });
+        }
+    </script>
+
+    <!-- Base Game Logic & UI Behaviours -->
+    <script>
         const perfToggle = document.getElementById('perfToggle');
         const savedPerfMode = localStorage.getItem('performanceMode') === 'true';
 
@@ -1729,87 +1667,61 @@
             const sidebar = document.querySelector('.sidebar');
             const mainContent = document.querySelector('.main-content');
             const progressBar = document.getElementById('sidebarProgress');
-
             if (!sidebar || !mainContent || !progressBar) return;
-
             const sidebarHeight = sidebar.clientHeight;
             const contentHeight = mainContent.scrollHeight;
             const visibleHeight = mainContent.clientHeight;
             const maxScroll = contentHeight - visibleHeight;
-
-            if (maxScroll <= 0) {
-                progressBar.style.height = sidebarHeight + 'px';
-                return;
-            }
-
+            if (maxScroll <= 0) { progressBar.style.height = sidebarHeight + 'px'; return; }
             const scrollPercentage = mainContent.scrollTop / maxScroll;
             const progressHeight = (scrollPercentage * (sidebarHeight - 20)) + 10;
-
             progressBar.style.height = Math.min(progressHeight, sidebarHeight - 10) + 'px';
         }
 
-        // ===== ACTIVE SECTION DETECTION =====
         function updateActiveSection() {
             const mainContent = document.querySelector('.main-content');
             const sections = document.querySelectorAll('.letter-section');
             const sidebarBtns = document.querySelectorAll('.sidebar-btn');
-
             sidebarBtns.forEach(btn => btn.classList.remove('active'));
-
             let closestSection = null;
             let closestDistance = Infinity;
-
             sections.forEach((section, index) => {
                 const rect = section.getBoundingClientRect();
                 const distance = Math.abs(rect.top - 200);
-
                 if (distance < closestDistance && rect.top < mainContent.clientHeight) {
                     closestDistance = distance;
                     closestSection = index;
                 }
             });
-
             if (closestSection !== null && sidebarBtns[closestSection]) {
                 sidebarBtns[closestSection].classList.add('active');
             }
         }
 
-        // ===== EVENT LISTENERS =====
         const mainContent = document.querySelector('.main-content');
-        
         mainContent.addEventListener('scroll', () => {
             updateSidebarProgress();
             updateActiveSection();
         }, { passive: true });
 
-        // ===== THEME LOGIC & OVERLAY =====
+        // ===== THEMES =====
         const html = document.documentElement;
         const savedTheme = localStorage.getItem('theme') || 'dark';
-        
         const themeSelectorBtn = document.getElementById('themeSelectorBtn');
         const themeBackBtn = document.getElementById('themeBackBtn');
         const themeConfirmBtn = document.getElementById('themeConfirmBtn');
         const themeCardContainers = document.querySelectorAll('.theme-card-container');
-
         let originalTheme = 'dark';
         let previewTheme = 'dark';
 
         function setTheme(theme) {
             html.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
-            updateAuroraColors(theme);
-        }
-
-        function updateAuroraColors(theme) {
             document.documentElement.style.transition = 'all 0.5s ease';
-            setTimeout(() => {
-                document.documentElement.style.transition = '';
-            }, 500);
+            setTimeout(() => { document.documentElement.style.transition = ''; }, 500);
         }
 
-        // Apply saved theme on load
         html.setAttribute('data-theme', savedTheme);
-        updateAuroraColors(savedTheme);
 
         if (themeSelectorBtn) {
             themeSelectorBtn.addEventListener('click', () => {
@@ -1822,161 +1734,268 @@
 
         themeCardContainers.forEach(container => {
             container.addEventListener('click', () => {
-                const selectedTheme = container.getAttribute('data-theme-id');
-                previewTheme = selectedTheme;
+                SoundFx.themeSelect();
+                previewTheme = container.getAttribute('data-theme-id');
                 html.setAttribute('data-theme', previewTheme);
                 updateThemeSelectionUI(previewTheme);
             });
         });
 
-        if (themeBackBtn) {
-            themeBackBtn.addEventListener('click', cancelThemePreview);
-        }
+        if (themeBackBtn) themeBackBtn.addEventListener('click', cancelThemePreview);
 
         if (themeConfirmBtn) {
             themeConfirmBtn.addEventListener('click', () => {
+                SoundFx.themeConfirm();
                 setTheme(previewTheme);
                 closeModal('themeModal');
-                
-                const icons = {
-                    'dark': '🌙', 'light': '☀️', 'cyberpunk': '⚡', 'midnight': '👾', 
-                    'magma': '🌋', 'toxic': '🧪', 'deepspace': '🌌', 'arctic': '🧊', 
-                    'emerald': '🌲', 'bubblegum': '🍬', 'nuclear': '☢️', 'bloodmoon': '🩸', 
-                    'gameboy': '🕹️', 'synthwave': '👾', 'ps1': '🟨', 'blub': '🦎'
-                };
+                const icons = { 'dark':'🌙', 'light':'☀️', 'cyberpunk':'⚡', 'midnight':'👾', 'magma':'🌋', 'toxic':'🧪', 'deepspace':'🌌', 'arctic':'🧊', 'emerald':'🌲', 'bubblegum':'🍬', 'nuclear':'☢️', 'bloodmoon':'🩸', 'gameboy':'🕹️', 'synthwave':'👾', 'ps1':'🟨', 'blub':'🦎' };
                 showToast(`${icons[previewTheme] || '🎨'} Theme updated!`, 'success');
             });
         }
 
         function cancelThemePreview() {
             html.setAttribute('data-theme', originalTheme);
-            updateAuroraColors(originalTheme);
             closeModal('themeModal');
         }
 
         function updateThemeSelectionUI(activeTheme) {
             themeCardContainers.forEach(container => {
-                if (container.getAttribute('data-theme-id') === activeTheme) {
-                    container.classList.add('selected');
-                } else {
-                    container.classList.remove('selected');
-                }
+                if (container.getAttribute('data-theme-id') === activeTheme) { container.classList.add('selected'); } 
+                else { container.classList.remove('selected'); }
             });
         }
 
-        // ===== BACK TO TOP BUTTON =====
         const backToTopBtn = document.getElementById('backToTop');
-
         mainContent.addEventListener('scroll', () => {
-            if (mainContent.scrollTop > 300) {
-                backToTopBtn.style.display = 'flex';
-            } else {
-                backToTopBtn.style.display = 'none';
-            }
+            backToTopBtn.style.display = (mainContent.scrollTop > 300) ? 'flex' : 'none';
         });
+        backToTopBtn.addEventListener('click', () => { mainContent.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-        backToTopBtn.addEventListener('click', () => {
-            mainContent.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // ===== KEYBOARD SHORTCUTS =====
         document.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                e.preventDefault();
-                document.getElementById('searchInput').focus();
-                showToast('Search focused! (Ctrl+K)', 'success');
-            }
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('searchInput').focus(); showToast('Search focused! (Ctrl+K)', 'success'); }
             if (e.key === 'Escape') {
-                if (document.getElementById('themeModal').classList.contains('show')) {
-                    cancelThemePreview();
-                } else {
-                    closeAllModals();
-                }
+                if (document.getElementById('themeModal').classList.contains('show')) { cancelThemePreview(); } else { closeAllModals(); }
             }
         });
 
-        // ===== TOAST NOTIFICATIONS =====
         function showToast(message, type = 'success') {
             const toast = document.createElement('div');
             toast.className = `toast-notification ${type}`;
             toast.textContent = message;
             document.body.appendChild(toast);
-
-            setTimeout(() => {
-                toast.style.animation = 'slideOutRight 0.4s ease-out';
-                setTimeout(() => toast.remove(), 400);
-            }, 3000);
+            setTimeout(() => { toast.style.animation = 'slideOutRight 0.4s ease-out'; setTimeout(() => toast.remove(), 400); }, 3000);
         }
 
-        // ===== MODALS =====
-        function showModal(modalId) {
-            document.getElementById(modalId).classList.add('show');
+        function showModal(modalId) { 
+            SoundFx.click(); 
+            document.getElementById(modalId).classList.add('show'); 
         }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('show');
+        function closeModal(modalId) { 
+            SoundFx.click(); 
+            document.getElementById(modalId).classList.remove('show'); 
         }
-
-        function closeAllModals() {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.classList.remove('show');
-            });
+        function closeAllModals() { 
+            document.querySelectorAll('.modal').forEach(modal => { modal.classList.remove('show'); }); 
         }
+        function showInfo() { showModal('infoModal'); }
 
-        function showInfo() {
-            showModal('infoModal');
-        }
-
-        // Close modal when clicking outside (safeguards unconfirmed theme previews)
         document.querySelectorAll('.modal').forEach(modal => {
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
-                    if (modal.id === 'themeModal') {
-                        cancelThemePreview();
-                    } else {
-                        modal.classList.remove('show');
-                    }
+                    if (modal.id === 'themeModal') cancelThemePreview(); else modal.classList.remove('show');
                 }
             });
         });
 
-        // ===== SMOOTH SCROLLING =====
         document.addEventListener('click', (e) => {
             if (e.target.tagName === 'A' && e.target.hash) {
                 e.preventDefault();
                 const target = document.querySelector(e.target.hash);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             }
         });
 
-        // ===== INITIALIZE ON LOAD =====
-        setTimeout(() => {
-            updateSidebarProgress();
-            updateActiveSection();
-        }, 3000);
+        setTimeout(() => { updateSidebarProgress(); updateActiveSection(); }, 3000);
+
+        // UI Event Delegation for generic Sounds
+        document.body.addEventListener('mouseover', (e) => {
+            if (e.target.matches('.sidebar-btn, .theme-selector, input[type="button"], .modal-btn, .fav-star, .theme-card-container, #backToTop')) {
+                SoundFx.hover();
+            }
+        });
+        document.body.addEventListener('mousedown', (e) => {
+            if (e.target.matches('.sidebar-btn, .theme-selector, input[type="button"]:not(#lolbutton), .modal-btn, #backToTop')) {
+                SoundFx.click();
+            }
+        });
+
     </script>
 
-    <!-- Original Scripts -->
+    <!-- Original External Scripts Maintained -->
     <script src="https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@main/searchbut.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@main/games.js"></script>
     
+    <!-- Unified MutationObserver for UI wrapping (Favorites system) and 'cl' removal -->
     <script>
-    function removeCLFromVisibleNames() {
-    document.querySelectorAll('input[type="button"]').forEach(btn => {
-        if (typeof btn.value === 'string' && btn.value.startsWith('cl')) {
-            btn.value = btn.value.slice(2);
+        // Load favorite games IDs from localStorage
+        let favorites = JSON.parse(localStorage.getItem('favoriteGames') || '[]');
+        let showFavoritesOnly = false;
+        const favFilterBtn = document.getElementById('favFilterBtn');
+
+        if (favFilterBtn) {
+            favFilterBtn.addEventListener('click', () => {
+                showFavoritesOnly = !showFavoritesOnly;
+                favFilterBtn.textContent = showFavoritesOnly ? '⭐ Favorites: ON' : '⭐ Favorites: OFF';
+                favFilterBtn.style.background = showFavoritesOnly ? 'rgba(255, 217, 61, 0.2)' : '';
+                favFilterBtn.style.borderColor = showFavoritesOnly ? 'var(--accent-color)' : '';
+                SoundFx.click();
+                
+                // Re-evaluate visibility for all wrappers
+                document.querySelectorAll('.game-btn-wrapper').forEach(wrapper => {
+                    applyVisibilityLogic(wrapper);
+                });
+            });
         }
-    });
-}
 
-    new MutationObserver(removeCLFromVisibleNames).observe(document.body, {
-    childList: true,
-    subtree: true
-});
+        // Apply visibility logic respecting both Search (via input proxy) and Favorites toggles
+        function applyVisibilityLogic(wrapper) {
+            const input = wrapper._gameInput;
+            const searchSaysHidden = (input.style.display === 'none');
+            const isFav = favorites.includes(input.id);
+            
+            if (showFavoritesOnly && !isFav) {
+                wrapper.style.display = 'none';
+            } else if (searchSaysHidden) {
+                wrapper.style.display = 'none';
+            } else {
+                wrapper.style.display = input.style.display || 'block';
+            }
+            evaluateEmptyState();
+        }
 
-    removeCLFromVisibleNames();
-</script>
+        function evaluateEmptyState() {
+            let anyVisible = false;
+            // Check if any game wrappers are currently visible
+            document.querySelectorAll('.game-btn-wrapper').forEach(wrapper => {
+                if (wrapper.style.display !== 'none') anyVisible = true;
+            });
+            
+            const noFavMsg = document.getElementById('no-favorites-msg');
+            if (showFavoritesOnly && !anyVisible) {
+                noFavMsg.style.display = 'block';
+            } else {
+                noFavMsg.style.display = 'none';
+            }
+        }
+
+        function processGameInputs() {
+            const inputs = document.querySelectorAll('input[type="button"]:not(.processed)');
+            inputs.forEach(btn => {
+                // Ignore structural controls that shouldn't be wrapped
+                if (!btn.id || ['lolbutton', 'themeSelectorBtn', 'perfToggle', 'soundToggle', 'randomBtn', 'favFilterBtn'].includes(btn.id)) return;
+                
+                // Keep original requirement: remove 'cl'
+                if (typeof btn.value === 'string' && btn.value.startsWith('cl')) {
+                    btn.value = btn.value.slice(2);
+                }
+                
+                btn.classList.add('processed');
+                
+                // 1. Create wrapper
+                const wrapper = document.createElement('div');
+                wrapper.className = 'game-btn-wrapper';
+                
+                // 2. Insert wrapper before input, then append input inside wrapper
+                btn.parentNode.insertBefore(wrapper, btn);
+                wrapper.appendChild(btn);
+                
+                // 3. Create Star icon overlay inside wrapper
+                const star = document.createElement('button');
+                star.type = "button";
+                star.className = 'fav-star';
+                
+                const isFav = favorites.includes(btn.id);
+                star.innerHTML = isFav ? '⭐' : '☆';
+                if(isFav) star.classList.add('active');
+                
+                star.title = "Toggle Favorite";
+                star.onclick = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevents clicking the underlying game input
+                    
+                    const idx = favorites.indexOf(btn.id);
+                    if (idx > -1) {
+                        favorites.splice(idx, 1);
+                        star.innerHTML = '☆';
+                        star.classList.remove('active');
+                        SoundFx.favOff();
+                    } else {
+                        favorites.push(btn.id);
+                        star.innerHTML = '⭐';
+                        star.classList.add('active');
+                        SoundFx.favOn();
+                    }
+                    localStorage.setItem('favoriteGames', JSON.stringify(favorites));
+                    
+                    // Immediately hide the game if we un-starred it while strictly in Favorites filter mode
+                    if (showFavoritesOnly && idx > -1) {
+                        applyVisibilityLogic(wrapper);
+                    }
+                };
+                
+                wrapper.appendChild(star);
+                
+                // Keep a reference for easy access
+                wrapper._gameInput = btn;
+                
+                // Observe style changes on the native input (caused by searchbut.js) and mirror them
+                const styleObserver = new MutationObserver(() => applyVisibilityLogic(wrapper));
+                styleObserver.observe(btn, { attributes: true, attributeFilter: ['style'] });
+                
+                applyVisibilityLogic(wrapper);
+            });
+        }
+
+        // Replace original `removeCLFromVisibleNames` observer with comprehensive pipeline
+        new MutationObserver(processGameInputs).observe(document.body, { childList: true, subtree: true });
+        processGameInputs();
+
+        // ===== RANDOM GAME LOGIC =====
+        const randomBtn = document.getElementById('randomBtn');
+        if (randomBtn) {
+            randomBtn.addEventListener('click', () => {
+                SoundFx.random();
+                
+                const wrappers = Array.from(document.querySelectorAll('.game-btn-wrapper'));
+                // Prioritize choosing from visibly filtered items
+                let eligible = wrappers.filter(w => w.style.display !== 'none');
+                
+                // If everything is hidden, choose from whole list regardless of filter
+                if (eligible.length === 0) eligible = wrappers;
+                
+                if (eligible.length === 0) {
+                    showToast("No games available to randomize!", "error");
+                    return;
+                }
+                
+                const chosen = eligible[Math.floor(Math.random() * eligible.length)];
+                const inputBtn = chosen._gameInput;
+                
+                chosen.style.transform = 'scale(1.05)';
+                chosen.style.boxShadow = '0 0 20px var(--accent-color)';
+                chosen.style.zIndex = '100';
+                chosen.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                showToast(`🎲 Selected: ${inputBtn.value}`, 'success');
+                
+                setTimeout(() => {
+                    chosen.style.transform = '';
+                    chosen.style.boxShadow = '';
+                    chosen.style.zIndex = '';
+                    inputBtn.click(); // Standard launch
+                }, 850);
+            });
+        }
+    </script>
 </body>
 </html>
