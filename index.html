@@ -33,6 +33,30 @@
             --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
 
+        /* Explicit data-theme="dark" identical to :root for proper component rendering */
+        [data-theme="dark"] {
+            --primary-color: #5986da;
+            --primary-light: #79aadb;
+            --primary-dark: #4a7bc7;
+            --secondary-color: #ff6b6b;
+            --accent-color: #ffd93d;
+            --success-color: #6bcf7f;
+            --warning-color: #ffa500;
+            --danger-color: #ff4757;
+            --bg-dark: #0f0f1e;
+            --bg-darker: #0a0a14;
+            --bg-card: #1a1a2e;
+            --bg-light: #2a2a3e;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-tertiary: rgba(255, 255, 255, 0.5);
+            --border-color: rgba(89, 134, 218, 0.2);
+            --aurora-1: rgba(89, 134, 218, 0.15);
+            --aurora-2: rgba(121, 170, 219, 0.1);
+            --aurora-3: rgba(107, 199, 127, 0.08);
+            --aurora-4: rgba(255, 107, 107, 0.08);
+        }
+
         [data-theme="light"] {
             --primary-color: #4a7bc7;
             --primary-light: #5986da;
@@ -367,7 +391,6 @@
             overflow: hidden;
         }
 
-        /* Animated gradient mesh layers */
         .aurora-layer {
             position: absolute;
             top: 0;
@@ -380,45 +403,18 @@
             filter: blur(80px);
         }
 
-        .aurora-layer:nth-child(1) {
-            background: radial-gradient(ellipse at 20% 30%, var(--aurora-1) 0%, transparent 50%);
-            animation-delay: 0s;
-        }
-
-        .aurora-layer:nth-child(2) {
-            background: radial-gradient(ellipse at 80% 70%, var(--aurora-2) 0%, transparent 50%);
-            animation-delay: -8s;
-            animation-duration: 30s;
-        }
-
-        .aurora-layer:nth-child(3) {
-            background: radial-gradient(ellipse at 40% 80%, var(--aurora-3) 0%, transparent 50%);
-            animation-delay: -15s;
-            animation-duration: 35s;
-        }
-
-        .aurora-layer:nth-child(4) {
-            background: radial-gradient(ellipse at 60% 20%, var(--aurora-4) 0%, transparent 50%);
-            animation-delay: -5s;
-            animation-duration: 28s;
-        }
+        .aurora-layer:nth-child(1) { background: radial-gradient(ellipse at 20% 30%, var(--aurora-1) 0%, transparent 50%); animation-delay: 0s; }
+        .aurora-layer:nth-child(2) { background: radial-gradient(ellipse at 80% 70%, var(--aurora-2) 0%, transparent 50%); animation-delay: -8s; animation-duration: 30s; }
+        .aurora-layer:nth-child(3) { background: radial-gradient(ellipse at 40% 80%, var(--aurora-3) 0%, transparent 50%); animation-delay: -15s; animation-duration: 35s; }
+        .aurora-layer:nth-child(4) { background: radial-gradient(ellipse at 60% 20%, var(--aurora-4) 0%, transparent 50%); animation-delay: -5s; animation-duration: 28s; }
 
         @keyframes aurora-drift {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            25% {
-                transform: translate(-30px, -50px) scale(1.1);
-            }
-            50% {
-                transform: translate(40px, 30px) scale(0.95);
-            }
-            75% {
-                transform: translate(-20px, 60px) scale(1.05);
-            }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(-30px, -50px) scale(1.1); }
+            50% { transform: translate(40px, 30px) scale(0.95); }
+            75% { transform: translate(-20px, 60px) scale(1.05); }
         }
 
-        /* Floating orbs */
         .floating-orb {
             position: absolute;
             border-radius: 50%;
@@ -428,59 +424,16 @@
             animation: float-orb 15s ease-in-out infinite;
         }
 
-        .floating-orb:nth-child(5) {
-            width: 300px;
-            height: 300px;
-            top: -100px;
-            left: 10%;
-            background: radial-gradient(circle, var(--aurora-1) 0%, transparent 70%);
-            animation-delay: 0s;
-        }
-
-        .floating-orb:nth-child(6) {
-            width: 250px;
-            height: 250px;
-            top: 50%;
-            right: 5%;
-            background: radial-gradient(circle, var(--aurora-2) 0%, transparent 70%);
-            animation-delay: -5s;
-        }
-
-        .floating-orb:nth-child(7) {
-            width: 280px;
-            height: 280px;
-            bottom: -80px;
-            left: 50%;
-            background: radial-gradient(circle, var(--aurora-3) 0%, transparent 70%);
-            animation-delay: -10s;
-        }
-
-        .floating-orb:nth-child(8) {
-            width: 320px;
-            height: 320px;
-            top: 30%;
-            left: 60%;
-            background: radial-gradient(circle, var(--aurora-4) 0%, transparent 70%);
-            animation-delay: -3s;
-        }
+        .floating-orb:nth-child(5) { width: 300px; height: 300px; top: -100px; left: 10%; background: radial-gradient(circle, var(--aurora-1) 0%, transparent 70%); animation-delay: 0s; }
+        .floating-orb:nth-child(6) { width: 250px; height: 250px; top: 50%; right: 5%; background: radial-gradient(circle, var(--aurora-2) 0%, transparent 70%); animation-delay: -5s; }
+        .floating-orb:nth-child(7) { width: 280px; height: 280px; bottom: -80px; left: 50%; background: radial-gradient(circle, var(--aurora-3) 0%, transparent 70%); animation-delay: -10s; }
+        .floating-orb:nth-child(8) { width: 320px; height: 320px; top: 30%; left: 60%; background: radial-gradient(circle, var(--aurora-4) 0%, transparent 70%); animation-delay: -3s; }
 
         @keyframes float-orb {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.3;
-            }
-            25% {
-                transform: translate(-40px, -60px) scale(1.15);
-                opacity: 0.5;
-            }
-            50% {
-                transform: translate(30px, 50px) scale(0.9);
-                opacity: 0.3;
-            }
-            75% {
-                transform: translate(-50px, 30px) scale(1.1);
-                opacity: 0.4;
-            }
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            25% { transform: translate(-40px, -60px) scale(1.15); opacity: 0.5; }
+            50% { transform: translate(30px, 50px) scale(0.9); opacity: 0.3; }
+            75% { transform: translate(-50px, 30px) scale(1.1); opacity: 0.4; }
         }
 
         .animated-gradient {
@@ -1182,13 +1135,8 @@
             font-weight: 600;
         }
 
-        .toast-notification.warning {
-            background: linear-gradient(135deg, var(--warning-color) 0%, #ff8c00 100%);
-        }
-
-        .toast-notification.error {
-            background: linear-gradient(135deg, var(--danger-color) 0%, #ff3838 100%);
-        }
+        .toast-notification.warning { background: linear-gradient(135deg, var(--warning-color) 0%, #ff8c00 100%); }
+        .toast-notification.error { background: linear-gradient(135deg, var(--danger-color) 0%, #ff3838 100%); }
 
         @keyframes slideInRight {
             0% { transform: translateX(400px); opacity: 0; }
@@ -1273,6 +1221,79 @@
 
         .modal-btn.secondary:hover {
             background: rgba(89, 134, 218, 0.2);
+        }
+
+        /* ===== THEME OVERLAY SPECIFICS ===== */
+        #themeModal .modal-content {
+            max-width: 900px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            overflow-y: auto;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .theme-grid::-webkit-scrollbar { width: 8px; }
+        .theme-grid::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 4px; }
+
+        .theme-card-container {
+            cursor: pointer;
+            border-radius: 16px;
+            padding: 3px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: transparent;
+        }
+
+        .theme-card-container.selected {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--primary-color);
+        }
+
+        .theme-card-container:hover:not(.selected) {
+            transform: translateY(-5px);
+        }
+
+        .theme-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 13px;
+            padding: 15px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .theme-palette {
+            display: flex;
+            width: 100%;
+            height: 35px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .theme-palette > div { flex: 1; }
+        .bg-swatch { background: var(--bg-dark); }
+        .primary-swatch { background: var(--primary-color); }
+        .secondary-swatch { background: var(--secondary-color, var(--primary-light)); }
+
+        .theme-name-label {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 15px;
+            text-align: center;
+            font-family: 'Pixelify Sans', sans-serif;
         }
 
         /* ===== FOOTER ===== */
@@ -1363,7 +1384,9 @@
         body.performance-mode input[type="button"],
         body.performance-mode input[type="button"]:hover,
         body.performance-mode .letter-header,
-        body.performance-mode .dot {
+        body.performance-mode .dot,
+        body.performance-mode .theme-card-container.selected,
+        body.performance-mode .theme-card-container:hover {
             box-shadow: none !important;
             text-shadow: none !important;
         }
@@ -1382,7 +1405,9 @@
         body.performance-mode #lolbutton:hover,
         body.performance-mode input[type="button"],
         body.performance-mode input[type="button"]:hover,
-        body.performance-mode .letter-section:hover {
+        body.performance-mode .letter-section:hover,
+        body.performance-mode .theme-card-container.selected,
+        body.performance-mode .theme-card-container:hover {
             transform: none !important;
         }
 
@@ -1400,120 +1425,40 @@
         body.performance-mode .letter-section,
         body.performance-mode input[type="button"],
         body.performance-mode .letter-header,
-        body.performance-mode .theme-selector {
+        body.performance-mode .theme-selector,
+        body.performance-mode .theme-card-container {
             transition: none !important;
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .sidebar {
-                width: 70px;
-                padding: 15px 5px;
-                gap: 8px;
-            }
-
-            .sidebar-btn {
-                padding: 10px;
-                font-size: 16px;
-                min-height: 45px;
-            }
-
-            .main-content {
-                margin-left: 70px;
-                padding: 25px 15px;
-            }
-
-            .header {
-                padding: 15px 0;
-                margin-bottom: 30px;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
-
-            .letter-section {
-                padding: 25px;
-                margin-bottom: 35px;
-            }
-
-            .letter-header {
-                font-size: 26px;
-            }
-
-            #searchInput {
-                max-width: 90%;
-                font-size: 14px;
-            }
-
-            .header-controls {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
-            }
-
-            .toast-notification {
-                right: 15px;
-                bottom: 80px;
-                max-width: calc(100% - 30px);
-            }
+            .sidebar { width: 70px; padding: 15px 5px; gap: 8px; }
+            .sidebar-btn { padding: 10px; font-size: 16px; min-height: 45px; }
+            .main-content { margin-left: 70px; padding: 25px 15px; }
+            .header { padding: 15px 0; margin-bottom: 30px; }
+            h1 { font-size: 36px; }
+            .letter-section { padding: 25px; margin-bottom: 35px; }
+            .letter-header { font-size: 26px; }
+            #searchInput { max-width: 90%; font-size: 14px; }
+            .header-controls { flex-direction: column; gap: 10px; }
+            .back-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; font-size: 20px; }
+            .toast-notification { right: 15px; bottom: 80px; max-width: calc(100% - 30px); }
+            #themeModal .modal-content { padding: 20px; width: 95%; }
+            .theme-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
         }
 
         @media (max-width: 480px) {
-            .sidebar {
-                width: 60px;
-                padding: 10px 3px;
-            }
-
-            .sidebar-btn {
-                padding: 8px;
-                font-size: 14px;
-            }
-
-            .main-content {
-                margin-left: 60px;
-                padding: 15px 10px;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            input[type="button"] {
-                font-size: 14px;
-                padding: 12px 16px;
-            }
-
-            .letter-header {
-                font-size: 20px;
-            }
-
-            .letter-section {
-                padding: 16px;
-            }
-
-            .modal-content {
-                padding: 24px;
-            }
-
-            .splash-logo {
-                font-size: 56px;
-            }
-
-            .splash-subtitle {
-                font-size: 14px;
-            }
-
-            .header-links {
-                font-size: 13px;
-            }
+            .sidebar { width: 60px; padding: 10px 3px; }
+            .sidebar-btn { padding: 8px; font-size: 14px; }
+            .main-content { margin-left: 60px; padding: 15px 10px; }
+            h1 { font-size: 28px; }
+            input[type="button"] { font-size: 14px; padding: 12px 16px; }
+            .letter-header { font-size: 20px; }
+            .letter-section { padding: 16px; }
+            .modal-content { padding: 24px; }
+            .splash-logo { font-size: 56px; }
+            .splash-subtitle { font-size: 14px; }
+            .header-links { font-size: 13px; }
         }
     </style>
 </head>
@@ -1557,24 +1502,7 @@
                 <div class="header-subtitle">Explore the Ultimate Game Stash Collection</div>
                 
                 <div class="header-controls">
-                    <select id="themeSelector" class="theme-selector" title="Select Theme" aria-label="Select Theme">
-                        <option value="dark">Default Dark</option>
-                        <option value="light">Light Mode</option>
-                        <option value="cyberpunk">Cyberpunk Neon</option>
-                        <option value="midnight">Midnight Arcade</option>
-                        <option value="magma">🌋 Magma Core</option>
-                        <option value="toxic">🧪 Toxic Lab</option>
-                        <option value="deepspace">🌌 Deep Space</option>
-                        <option value="arctic">🧊 Arctic</option>
-                        <option value="emerald">🌲 Emerald Matrix</option>
-                        <option value="bubblegum">🍬 Bubblegum</option>
-                        <option value="nuclear">☢️ Nuclear</option>
-                        <option value="bloodmoon">🩸 Blood Moon</option>
-                        <option value="gameboy">🕹️ Game Boy</option>
-                        <option value="synthwave">👾 Synthwave</option>
-                        <option value="ps1">🟨 PS1 Menu</option>
-                        <option value="blub">🦎 Blub</option>
-                    </select>
+                    <button id="themeSelectorBtn" class="theme-selector" title="Select Theme" aria-label="Select Theme">🎨 Themes</button>
                     <button id="perfToggle" class="theme-selector" title="Toggle Performance Mode">⚡ Performance: OFF</button>
                 </div>
 
@@ -1643,6 +1571,132 @@
         </div>
     </div>
 
+    <!-- Theme Selection Overlay -->
+    <div class="modal" id="themeModal">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: center;">🎨 Select Theme</div>
+            <div class="theme-grid">
+                
+                <div class="theme-card-container" data-theme-id="dark">
+                    <div class="theme-card" data-theme="dark">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">Default Dark</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="light">
+                    <div class="theme-card" data-theme="light">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">Light Mode</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="cyberpunk">
+                    <div class="theme-card" data-theme="cyberpunk">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">Cyberpunk Neon</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="midnight">
+                    <div class="theme-card" data-theme="midnight">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">Midnight Arcade</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="magma">
+                    <div class="theme-card" data-theme="magma">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">🌋 Magma Core</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="toxic">
+                    <div class="theme-card" data-theme="toxic">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">🧪 Toxic Lab</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="deepspace">
+                    <div class="theme-card" data-theme="deepspace">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">🌌 Deep Space</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="arctic">
+                    <div class="theme-card" data-theme="arctic">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">🧊 Arctic</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="emerald">
+                    <div class="theme-card" data-theme="emerald">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">🌲 Emerald Matrix</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="bubblegum">
+                    <div class="theme-card" data-theme="bubblegum">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">🍬 Bubblegum</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="nuclear">
+                    <div class="theme-card" data-theme="nuclear">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">☢️ Nuclear</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="bloodmoon">
+                    <div class="theme-card" data-theme="bloodmoon">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">🩸 Blood Moon</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="gameboy">
+                    <div class="theme-card" data-theme="gameboy">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">🕹️ Game Boy</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="synthwave">
+                    <div class="theme-card" data-theme="synthwave">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">👾 Synthwave</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="ps1">
+                    <div class="theme-card" data-theme="ps1">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">🟨 PS1 Menu</div>
+                    </div>
+                </div>
+
+                <div class="theme-card-container" data-theme-id="blub">
+                    <div class="theme-card" data-theme="blub">
+                        <div class="theme-palette"><div class="bg-swatch"></div><div class="primary-swatch"></div><div class="secondary-swatch"></div></div>
+                        <div class="theme-name-label">🦎 Blub</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer" style="justify-content: space-between;">
+                <button class="modal-btn secondary" id="themeBackBtn">← Back</button>
+                <button class="modal-btn primary" id="themeConfirmBtn">✓ Confirm</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script>
         // ===== PERFORMANCE MODE TOGGLE =====
@@ -1659,7 +1713,6 @@
             }
         }
 
-        // Apply Performance Mode on load
         applyPerformanceMode(savedPerfMode);
 
         if (perfToggle) {
@@ -1672,7 +1725,6 @@
             });
         }
 
-        // ===== DARK MODE TOGGLE WITH AURORA COLORS =====
         function updateSidebarProgress() {
             const sidebar = document.querySelector('.sidebar');
             const mainContent = document.querySelector('.main-content');
@@ -1702,7 +1754,6 @@
             const sections = document.querySelectorAll('.letter-section');
             const sidebarBtns = document.querySelectorAll('.sidebar-btn');
 
-            // Remove all active states
             sidebarBtns.forEach(btn => btn.classList.remove('active'));
 
             let closestSection = null;
@@ -1710,7 +1761,7 @@
 
             sections.forEach((section, index) => {
                 const rect = section.getBoundingClientRect();
-                const distance = Math.abs(rect.top - 200); // Center of viewport
+                const distance = Math.abs(rect.top - 200);
 
                 if (distance < closestDistance && rect.top < mainContent.clientHeight) {
                     closestDistance = distance;
@@ -1731,57 +1782,85 @@
             updateActiveSection();
         }, { passive: true });
 
-        // ===== THEME SELECTOR =====
-        const themeSelector = document.getElementById('themeSelector');
+        // ===== THEME LOGIC & OVERLAY =====
         const html = document.documentElement;
         const savedTheme = localStorage.getItem('theme') || 'dark';
+        
+        const themeSelectorBtn = document.getElementById('themeSelectorBtn');
+        const themeBackBtn = document.getElementById('themeBackBtn');
+        const themeConfirmBtn = document.getElementById('themeConfirmBtn');
+        const themeCardContainers = document.querySelectorAll('.theme-card-container');
+
+        let originalTheme = 'dark';
+        let previewTheme = 'dark';
 
         function setTheme(theme) {
             html.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
-            
-            if (themeSelector) {
-                themeSelector.value = theme;
-            }
-            
             updateAuroraColors(theme);
         }
 
         function updateAuroraColors(theme) {
-            // Colors are already updated via CSS variables
-            // This ensures smooth transitions
             document.documentElement.style.transition = 'all 0.5s ease';
             setTimeout(() => {
                 document.documentElement.style.transition = '';
             }, 500);
         }
 
-        setTheme(savedTheme);
+        // Apply saved theme on load
+        html.setAttribute('data-theme', savedTheme);
+        updateAuroraColors(savedTheme);
 
-        if (themeSelector) {
-            themeSelector.addEventListener('change', (e) => {
-                const newTheme = e.target.value;
-                setTheme(newTheme);
+        if (themeSelectorBtn) {
+            themeSelectorBtn.addEventListener('click', () => {
+                originalTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+                previewTheme = originalTheme;
+                updateThemeSelectionUI(previewTheme);
+                showModal('themeModal');
+            });
+        }
+
+        themeCardContainers.forEach(container => {
+            container.addEventListener('click', () => {
+                const selectedTheme = container.getAttribute('data-theme-id');
+                previewTheme = selectedTheme;
+                html.setAttribute('data-theme', previewTheme);
+                updateThemeSelectionUI(previewTheme);
+            });
+        });
+
+        if (themeBackBtn) {
+            themeBackBtn.addEventListener('click', cancelThemePreview);
+        }
+
+        if (themeConfirmBtn) {
+            themeConfirmBtn.addEventListener('click', () => {
+                setTheme(previewTheme);
+                closeModal('themeModal');
                 
-                let icon = '🎨';
-                if (newTheme === 'light') icon = '☀️';
-                else if (newTheme === 'dark') icon = '🌙';
-                else if (newTheme === 'cyberpunk') icon = '⚡';
-                else if (newTheme === 'midnight') icon = '👾';
-                else if (newTheme === 'magma') icon = '🌋';
-                else if (newTheme === 'toxic') icon = '🧪';
-                else if (newTheme === 'deepspace') icon = '🌌';
-                else if (newTheme === 'arctic') icon = '🧊';
-                else if (newTheme === 'emerald') icon = '🌲';
-                else if (newTheme === 'bubblegum') icon = '🍬';
-                else if (newTheme === 'nuclear') icon = '☢️';
-                else if (newTheme === 'bloodmoon') icon = '🩸';
-                else if (newTheme === 'gameboy') icon = '🕹️';
-                else if (newTheme === 'synthwave') icon = '👾';
-                else if (newTheme === 'ps1') icon = '🟨';
-                else if (newTheme === 'blub') icon = '🦎';
-                
-                showToast(`${icon} Theme updated!`, 'success');
+                const icons = {
+                    'dark': '🌙', 'light': '☀️', 'cyberpunk': '⚡', 'midnight': '👾', 
+                    'magma': '🌋', 'toxic': '🧪', 'deepspace': '🌌', 'arctic': '🧊', 
+                    'emerald': '🌲', 'bubblegum': '🍬', 'nuclear': '☢️', 'bloodmoon': '🩸', 
+                    'gameboy': '🕹️', 'synthwave': '👾', 'ps1': '🟨', 'blub': '🦎'
+                };
+                showToast(`${icons[previewTheme] || '🎨'} Theme updated!`, 'success');
+            });
+        }
+
+        function cancelThemePreview() {
+            html.setAttribute('data-theme', originalTheme);
+            updateAuroraColors(originalTheme);
+            closeModal('themeModal');
+        }
+
+        function updateThemeSelectionUI(activeTheme) {
+            themeCardContainers.forEach(container => {
+                if (container.getAttribute('data-theme-id') === activeTheme) {
+                    container.classList.add('selected');
+                } else {
+                    container.classList.remove('selected');
+                }
             });
         }
 
@@ -1802,15 +1881,17 @@
 
         // ===== KEYBOARD SHORTCUTS =====
         document.addEventListener('keydown', (e) => {
-            // Cmd/Ctrl + K for search focus
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
                 e.preventDefault();
                 document.getElementById('searchInput').focus();
                 showToast('Search focused! (Ctrl+K)', 'success');
             }
-            // Escape to close modals
             if (e.key === 'Escape') {
-                closeAllModals();
+                if (document.getElementById('themeModal').classList.contains('show')) {
+                    cancelThemePreview();
+                } else {
+                    closeAllModals();
+                }
             }
         });
 
@@ -1846,11 +1927,15 @@
             showModal('infoModal');
         }
 
-        // Close modal when clicking outside
+        // Close modal when clicking outside (safeguards unconfirmed theme previews)
         document.querySelectorAll('.modal').forEach(modal => {
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
-                    modal.classList.remove('show');
+                    if (modal.id === 'themeModal') {
+                        cancelThemePreview();
+                    } else {
+                        modal.classList.remove('show');
+                    }
                 }
             });
         });
