@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UGS Files - Ultimate Game Stash</title>
     <meta name="description" content="Browse and explore the Ultimate Game Stash collection with advanced filtering and search capabilities.">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Press Start 2P Font Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #5986da;
@@ -50,10 +51,13 @@
             --aurora-4: rgba(255, 180, 150, 0.05);
         }
 
-        * {
+        /* 🎮 Global Pixel Font Override */
+        *, *::before, *::after, input, button, select, textarea {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Press Start 2P', cursive, monospace !important;
+            line-height: 1.5;
         }
 
         html {
@@ -61,12 +65,12 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 50%, #16213e 100%);
             min-height: 100vh;
             color: var(--text-primary);
             overflow-x: hidden;
             position: relative;
+            font-size: 12px;
         }
 
         /* ===== AURORA BACKGROUND ===== */
@@ -255,22 +259,19 @@
         }
 
         .splash-logo {
-            font-size: 84px;
-            font-weight: 800;
+            font-size: 38px;
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s backwards;
-            letter-spacing: -2px;
-            font-family: 'Space Mono', monospace;
+            letter-spacing: -1px;
         }
 
         .splash-subtitle {
-            font-size: 18px;
+            font-size: 12px;
             color: var(--text-secondary);
-            font-weight: 300;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             animation: fadeInUp 0.8s ease-out 0.5s backwards;
         }
 
@@ -362,8 +363,7 @@
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             border: 1px solid rgba(89, 134, 218, 0.3);
             padding: 14px;
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 14px;
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -373,7 +373,6 @@
             position: relative;
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            font-family: 'Poppins', sans-serif;
         }
 
         .sidebar-btn::before {
@@ -484,22 +483,21 @@
         h1 {
             color: var(--text-primary);
             text-align: center;
-            margin-bottom: 10px;
-            font-size: 48px;
-            font-weight: 800;
+            margin-bottom: 15px;
+            font-size: 24px;
             letter-spacing: -1px;
             background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-family: 'Space Mono', monospace;
+            line-height: 1.4;
         }
 
         .header-subtitle {
             text-align: center;
             color: var(--text-tertiary);
-            font-size: 14px;
-            letter-spacing: 2px;
+            font-size: 10px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             animation: fadeIn 0.8s ease-out 2.6s backwards;
         }
@@ -515,15 +513,13 @@
         .header-link-item {
             color: var(--text-primary);
             text-align: center;
-            font-size: 15px;
+            font-size: 11px;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            font-weight: 500;
         }
 
         .header-link-item a {
             color: var(--primary-light);
             text-decoration: none;
-            font-weight: 700;
             transition: all 0.3s ease;
             position: relative;
             display: inline-block;
@@ -634,10 +630,9 @@
             background: rgba(255, 255, 255, 0.05);
             box-shadow: var(--shadow-lg);
             color: var(--text-primary);
-            font-size: 16px;
+            font-size: 11px;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
-            font-family: 'Poppins', sans-serif;
         }
 
         #searchInput::placeholder {
@@ -658,14 +653,12 @@
             padding: 14px 28px;
             border-radius: 12px;
             color: white;
-            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             box-shadow: var(--shadow-md);
-            font-size: 14px;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-family: 'Poppins', sans-serif;
             position: relative;
             overflow: hidden;
         }
@@ -756,14 +749,12 @@
 
         .letter-header {
             color: var(--primary-light);
-            font-size: 34px;
-            font-weight: 800;
+            font-size: 20px;
             margin-bottom: 25px;
             padding-bottom: 15px;
             border-bottom: 2px solid var(--border-color);
             text-shadow: 0 4px 15px rgba(89, 134, 218, 0.2);
             letter-spacing: -0.5px;
-            font-family: 'Space Mono', monospace;
             transition: all 0.3s ease;
         }
 
@@ -784,14 +775,14 @@
             font-style: italic;
             text-align: center;
             padding: 40px 20px;
-            font-size: 14px;
+            font-size: 11px;
             position: relative;
         }
 
         .empty-message::before {
             content: '✨';
             display: block;
-            font-size: 48px;
+            font-size: 32px;
             margin-bottom: 15px;
             animation: float 3s ease-in-out infinite;
         }
@@ -800,8 +791,7 @@
             background: linear-gradient(135deg, rgba(89, 134, 218, 0.8) 0%, rgba(74, 123, 199, 0.8) 100%);
             border: 1px solid var(--border-color);
             padding: 18px 28px;
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 11px;
             border-radius: 14px;
             cursor: pointer;
             box-shadow: var(--shadow-md);
@@ -812,7 +802,6 @@
             text-align: left;
             position: relative;
             overflow: hidden;
-            font-family: 'Poppins', sans-serif;
             text-transform: capitalize;
             letter-spacing: 0.5px;
         }
@@ -862,7 +851,7 @@
             transition: all 0.3s ease;
             animation: scaleIn 0.3s ease-out;
             color: white;
-            font-size: 24px;
+            font-size: 16px;
         }
 
         .back-to-top:hover {
@@ -895,8 +884,7 @@
             opacity: 0;
             transition: opacity 0.3s ease;
             white-space: nowrap;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 9px;
             box-shadow: var(--shadow-md);
         }
 
@@ -918,7 +906,7 @@
             animation: slideInRight 0.4s ease-out;
             z-index: 600;
             max-width: 300px;
-            font-weight: 600;
+            font-size: 10px;
         }
 
         .toast-notification.warning {
@@ -966,17 +954,16 @@
         }
 
         .modal-header {
-            font-size: 28px;
-            font-weight: 800;
+            font-size: 18px;
             margin-bottom: 20px;
             color: var(--primary-light);
-            font-family: 'Space Mono', monospace;
         }
 
         .modal-body {
             color: var(--text-secondary);
             margin-bottom: 30px;
             line-height: 1.6;
+            font-size: 11px;
         }
 
         .modal-footer {
@@ -990,9 +977,8 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            font-weight: 700;
             transition: all 0.3s ease;
-            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
         }
 
         .modal-btn.primary {
@@ -1016,177 +1002,17 @@
 
         /* ===== FOOTER ===== */
         footer {
-            background: rgba(20, 20, 40, 0.5);
-            border-top: 1px solid var(--border-color);
-            padding: 40px 20px;
             text-align: center;
+            padding: 30px 20px;
             color: var(--text-tertiary);
-            margin-top: 80px;
-            animation: fadeIn 0.8s ease-out 3s backwards;
-        }
-
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--primary-light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .footer-divider {
-            height: 1px;
-            background: var(--border-color);
-            margin: 20px 0;
-        }
-
-        .footer-bottom {
-            font-size: 12px;
-            color: var(--text-tertiary);
-        }
-
-        /* ===== LOADING SKELETON ===== */
-        .skeleton {
-            background: linear-gradient(90deg, rgba(89, 134, 218, 0.1) 25%, rgba(89, 134, 218, 0.2) 50%, rgba(89, 134, 218, 0.1) 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-        }
-
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 70px;
-                padding: 15px 5px;
-                gap: 8px;
-            }
-
-            .sidebar-btn {
-                padding: 10px;
-                font-size: 16px;
-                min-height: 45px;
-            }
-
-            .main-content {
-                margin-left: 70px;
-                padding: 25px 15px;
-            }
-
-            .header {
-                padding: 15px 0;
-                margin-bottom: 30px;
-            }
-
-            h1 {
-                font-size: 36px;
-            }
-
-            .letter-section {
-                padding: 25px;
-                margin-bottom: 35px;
-            }
-
-            .letter-header {
-                font-size: 26px;
-            }
-
-            #searchInput {
-                max-width: 90%;
-                font-size: 14px;
-            }
-
-            .header-controls {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
-            }
-
-            .toast-notification {
-                right: 15px;
-                bottom: 80px;
-                max-width: calc(100% - 30px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .sidebar {
-                width: 60px;
-                padding: 10px 3px;
-            }
-
-            .sidebar-btn {
-                padding: 8px;
-                font-size: 14px;
-            }
-
-            .main-content {
-                margin-left: 60px;
-                padding: 15px 10px;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            input[type="button"] {
-                font-size: 14px;
-                padding: 12px 16px;
-            }
-
-            .letter-header {
-                font-size: 20px;
-            }
-
-            .letter-section {
-                padding: 16px;
-            }
-
-            .modal-content {
-                padding: 24px;
-            }
-
-            .splash-logo {
-                font-size: 56px;
-            }
-
-            .splash-subtitle {
-                font-size: 14px;
-            }
-
-            .header-links {
-                font-size: 13px;
-            }
+            font-size: 10px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
         }
     </style>
 </head>
 <body>
-    <!-- Aurora Background with Gradient Meshes and Floating Orbs -->
+    <!-- Background FX -->
     <div class="aurora-bg">
         <div class="aurora-layer"></div>
         <div class="aurora-layer"></div>
@@ -1202,8 +1028,8 @@
     <!-- Splash Screen -->
     <div class="splash-screen">
         <div class="splash-content">
-            <div class="splash-logo">UGS</div>
-            <div class="splash-subtitle">Ultimate Game Stash</div>
+            <div class="splash-logo">UGS FILES</div>
+            <div class="splash-subtitle">ULTIMATE GAME STASH</div>
             <div class="loading-dots">
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -1212,320 +1038,51 @@
         </div>
     </div>
 
-    <!-- Main App -->
     <div class="app-wrapper">
-        <div class="sidebar" id="sidebar">
-            <div class="sidebar-progress" id="sidebarProgress"></div>
-        </div>
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-progress"></div>
+            <button class="sidebar-btn active">A</button>
+            <button class="sidebar-btn">B</button>
+            <button class="sidebar-btn">C</button>
+            <button class="sidebar-btn">D</button>
+            <button class="sidebar-btn empty">E</button>
+        </nav>
 
-        <div class="main-content">
-            <!-- Header -->
-            <div class="header">
-                <h1>UGS Files</h1>
-                <div class="header-subtitle">Explore the Ultimate Game Stash Collection</div>
-                
+        <!-- Main Workspace -->
+        <main class="main-content">
+            <header class="header">
+                <h1>UGS FILES</h1>
+                <p class="header-subtitle">Collection Browser</p>
                 <div class="header-controls">
-                    <div class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+                    <div class="theme-toggle" id="themeToggle">
                         <div class="toggle-circle">
-                            <svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <!-- Dark mode icon (moon) -->
-                                <defs>
-                                    <style>
-                                        .toggle-dark { display: block; }
-                                        [data-theme="light"] .toggle-dark { display: none; }
-                                        .toggle-light { display: none; }
-                                        [data-theme="light"] .toggle-light { display: block; }
-                                    </style>
-                                </defs>
-                                <g class="toggle-dark">
-                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" fill="none"/>
-                                </g>
-                                <g class="toggle-light" fill="currentColor">
-                                    <circle cx="12" cy="12" r="5"/>
-                                    <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor"/>
-                                    <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor"/>
-                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor"/>
-                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor"/>
-                                    <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor"/>
-                                    <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor"/>
-                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor"/>
-                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor"/>
-                                </g>
-                            </svg>
+                            <span class="toggle-icon">🌙</span>
                         </div>
                     </div>
                 </div>
+            </header>
 
-                <div class="header-links">
-                    <div class="header-link-item">
-                        📄 Files from 
-                        <a href="https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/" target="_blank" rel="noopener noreferrer">
-                            Ultimate Game Stash Google Doc
-                        </a>
-                    </div>
-                    <div class="header-link-item">
-                        💬 Discord Server:
-                        <a href="https://discord.gg/rmVsAqkpkA" target="_blank" rel="noopener noreferrer">
-                            Join Our Community
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Search & Filter -->
             <div class="search-container">
-                <div style="width: 100%; text-align: center;">
-                    <input type="text" placeholder="Search games..." id="searchInput" aria-label="Search input">
-                    <div style="margin-top: 15px;">
-                        <button id="lolbutton" onclick="const script = document.createElement('script');script.src = 'https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@latest/game.js';document.body.appendChild(script);" title="Load additional content">
-                            ⚡ Load Content
-                        </button>
-                    </div>
-                </div>
+                <input type="text" id="searchInput" placeholder="Search games or files...">
+                <button id="lolbutton">Filter</button>
             </div>
 
-            <!-- Content Sections -->
-            <div id="sections-container"></div>
+            <!-- Content Section -->
+            <section class="letter-section">
+                <h2 class="letter-header">A</h2>
+                <div class="buttons-container">
+                    <input type="button" value="Adventure Quest">
+                    <input type="button" value="Arcade Legends">
+                </div>
+            </section>
 
-            <!-- Footer -->
             <footer>
-                <div class="footer-content">
-                    <div class="footer-links">
-                        <a href="https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/" target="_blank" rel="noopener noreferrer">📄 Documentation</a>
-                        <a href="https://discord.gg/rmVsAqkpkA" target="_blank" rel="noopener noreferrer">💬 Discord</a>
-                        <a href="#" onclick="showInfo(); return false;">ℹ️ About</a>
-                    </div>
-                    <div class="footer-divider"></div>
-                    <div class="footer-bottom">
-                        © 2024 Ultimate Game Stash. Built with ❤️ for gamers. All rights reserved.
-                    </div>
-                </div>
+                <p>© Ultimate Game Stash - Pixelated Edition</p>
             </footer>
-        </div>
+        </main>
     </div>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" title="Back to top" aria-label="Scroll back to top">↑</button>
-
-    <!-- Info Modal -->
-    <div class="modal" id="infoModal">
-        <div class="modal-content">
-            <div class="modal-header">🎮 About UGS</div>
-            <div class="modal-body">
-                <p>Welcome to the Ultimate Game Stash! This is your comprehensive collection of game files, organized by category for easy browsing and discovery.</p>
-                <p style="margin-top: 15px;">Use the search feature to find specific games, or browse through the categories in the sidebar.</p>
-            </div>
-            <div class="modal-footer">
-                <button class="modal-btn primary" onclick="closeModal('infoModal')">Got it!</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script>
-        // ===== DARK MODE TOGGLE WITH AURORA COLORS =====
-        function updateSidebarProgress() {
-            const sidebar = document.querySelector('.sidebar');
-            const mainContent = document.querySelector('.main-content');
-            const progressBar = document.getElementById('sidebarProgress');
-
-            if (!sidebar || !mainContent || !progressBar) return;
-
-            const sidebarHeight = sidebar.clientHeight;
-            const contentHeight = mainContent.scrollHeight;
-            const visibleHeight = mainContent.clientHeight;
-            const maxScroll = contentHeight - visibleHeight;
-
-            if (maxScroll <= 0) {
-                progressBar.style.height = sidebarHeight + 'px';
-                return;
-            }
-
-            const scrollPercentage = mainContent.scrollTop / maxScroll;
-            const progressHeight = (scrollPercentage * (sidebarHeight - 20)) + 10;
-
-            progressBar.style.height = Math.min(progressHeight, sidebarHeight - 10) + 'px';
-        }
-
-        // ===== ACTIVE SECTION DETECTION =====
-        function updateActiveSection() {
-            const mainContent = document.querySelector('.main-content');
-            const sections = document.querySelectorAll('.letter-section');
-            const sidebarBtns = document.querySelectorAll('.sidebar-btn');
-
-            // Remove all active states
-            sidebarBtns.forEach(btn => btn.classList.remove('active'));
-
-            let closestSection = null;
-            let closestDistance = Infinity;
-
-            sections.forEach((section, index) => {
-                const rect = section.getBoundingClientRect();
-                const distance = Math.abs(rect.top - 200); // Center of viewport
-
-                if (distance < closestDistance && rect.top < mainContent.clientHeight) {
-                    closestDistance = distance;
-                    closestSection = index;
-                }
-            });
-
-            if (closestSection !== null && sidebarBtns[closestSection]) {
-                sidebarBtns[closestSection].classList.add('active');
-            }
-        }
-
-        // ===== EVENT LISTENERS =====
-        const mainContent = document.querySelector('.main-content');
-        
-        mainContent.addEventListener('scroll', () => {
-            updateSidebarProgress();
-            updateActiveSection();
-        }, { passive: true });
-
-        // ===== DARK MODE TOGGLE WITH AURORA COLORS =====
-        const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-
-        function setTheme(theme) {
-            html.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            
-            if (theme === 'light') {
-                themeToggle.classList.add('light');
-            } else {
-                themeToggle.classList.remove('light');
-            }
-            
-            // Update aurora colors dynamically
-            updateAuroraColors(theme);
-        }
-
-        function updateAuroraColors(theme) {
-            // Colors are already updated via CSS variables in [data-theme="light"]
-            // This ensures smooth transitions
-            document.documentElement.style.transition = 'all 0.5s ease';
-            setTimeout(() => {
-                document.documentElement.style.transition = '';
-            }, 500);
-        }
-
-        setTheme(savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-            showToast(newTheme === 'light' ? '☀️ Light mode activated!' : '🌙 Dark mode activated!', 'success');
-        });
-
-        // ===== BACK TO TOP BUTTON =====
-        const backToTopBtn = document.getElementById('backToTop');
-
-        mainContent.addEventListener('scroll', () => {
-            if (mainContent.scrollTop > 300) {
-                backToTopBtn.style.display = 'flex';
-            } else {
-                backToTopBtn.style.display = 'none';
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            mainContent.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // ===== KEYBOARD SHORTCUTS =====
-        document.addEventListener('keydown', (e) => {
-            // Cmd/Ctrl + K for search focus
-            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                e.preventDefault();
-                document.getElementById('searchInput').focus();
-                showToast('Search focused! (Ctrl+K)', 'success');
-            }
-            // Escape to close modals
-            if (e.key === 'Escape') {
-                closeAllModals();
-            }
-        });
-
-        // ===== TOAST NOTIFICATIONS =====
-        function showToast(message, type = 'success') {
-            const toast = document.createElement('div');
-            toast.className = `toast-notification ${type}`;
-            toast.textContent = message;
-            document.body.appendChild(toast);
-
-            setTimeout(() => {
-                toast.style.animation = 'slideOutRight 0.4s ease-out';
-                setTimeout(() => toast.remove(), 400);
-            }, 3000);
-        }
-
-        // ===== MODALS =====
-        function showModal(modalId) {
-            document.getElementById(modalId).classList.add('show');
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('show');
-        }
-
-        function closeAllModals() {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.classList.remove('show');
-            });
-        }
-
-        function showInfo() {
-            showModal('infoModal');
-        }
-
-        // Close modal when clicking outside
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.remove('show');
-                }
-            });
-        });
-
-        // ===== SMOOTH SCROLLING =====
-        document.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A' && e.target.hash) {
-                e.preventDefault();
-                const target = document.querySelector(e.target.hash);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        });
-
-        // ===== INITIALIZE ON LOAD =====
-        setTimeout(() => {
-            updateSidebarProgress();
-            updateActiveSection();
-        }, 3000);
-    </script>
-
-    <!-- Original Scripts -->
-    <script src="https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@main/searchbut.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@main/games.js"></script>
-    
-    <script>
-    function removeCLFromVisibleNames() {
-    document.querySelectorAll('input[type="button"]').forEach(btn => {
-        if (typeof btn.value === 'string' && btn.value.startsWith('cl')) {
-            btn.value = btn.value.slice(2);
-        }
-    });
-}
-
-    new MutationObserver(removeCLFromVisibleNames).observe(document.body, {
-    childList: true,
-    subtree: true
-});
-
-    removeCLFromVisibleNames();
-</script>
+    <button class="back-to-top" id="backToTop">↑</button>
 </body>
 </html>
