@@ -841,9 +841,10 @@
             align-items: center;
             margin-top: 20px;
             animation: fadeIn 0.8s ease-out 2.7s backwards;
+            flex-wrap: wrap;
         }
 
-        /* ===== THEME SELECTOR ===== */
+        /* ===== THEME SELECTOR & TOGGLES ===== */
         .theme-selector {
             background: rgba(89, 134, 218, 0.15);
             border: 2px solid var(--primary-color);
@@ -1332,6 +1333,77 @@
             100% { background-position: -200% 0; }
         }
 
+        /* ===== PERFORMANCE MODE OPTIMIZATIONS ===== */
+        body.performance-mode .aurora-layer,
+        body.performance-mode .floating-orb,
+        body.performance-mode .animated-gradient {
+            display: none !important;
+            animation: none !important;
+        }
+
+        body.performance-mode .sidebar,
+        body.performance-mode .header,
+        body.performance-mode .letter-section,
+        body.performance-mode #searchInput,
+        body.performance-mode .splash-screen,
+        body.performance-mode .modal {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background-color: var(--bg-darker) !important;
+        }
+
+        body.performance-mode .sidebar-btn,
+        body.performance-mode .sidebar-btn.active,
+        body.performance-mode .sidebar-progress,
+        body.performance-mode #searchInput,
+        body.performance-mode #searchInput:focus,
+        body.performance-mode #lolbutton,
+        body.performance-mode .letter-section,
+        body.performance-mode .letter-section:hover,
+        body.performance-mode input[type="button"],
+        body.performance-mode input[type="button"]:hover,
+        body.performance-mode .letter-header,
+        body.performance-mode .dot {
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }
+
+        body.performance-mode .sidebar-btn.active,
+        body.performance-mode .empty-message::before,
+        body.performance-mode .dot {
+            animation: none !important;
+        }
+
+        body.performance-mode .sidebar-btn,
+        body.performance-mode .sidebar-btn:hover,
+        body.performance-mode .sidebar-btn.active,
+        body.performance-mode .sidebar-btn.active:hover,
+        body.performance-mode #lolbutton,
+        body.performance-mode #lolbutton:hover,
+        body.performance-mode input[type="button"],
+        body.performance-mode input[type="button"]:hover,
+        body.performance-mode .letter-section:hover {
+            transform: none !important;
+        }
+
+        body.performance-mode .sidebar-btn::before,
+        body.performance-mode #lolbutton::before,
+        body.performance-mode input[type="button"]::before,
+        body.performance-mode .letter-section::before {
+            display: none !important;
+        }
+
+        body.performance-mode .sidebar-btn,
+        body.performance-mode .sidebar-progress,
+        body.performance-mode #searchInput,
+        body.performance-mode #lolbutton,
+        body.performance-mode .letter-section,
+        body.performance-mode input[type="button"],
+        body.performance-mode .letter-header,
+        body.performance-mode .theme-selector {
+            transition: none !important;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .sidebar {
@@ -1503,6 +1575,7 @@
                         <option value="ps1">🟨 PS1 Menu</option>
                         <option value="blub">🦎 Blub</option>
                     </select>
+                    <button id="perfToggle" class="theme-selector" title="Toggle Performance Mode">⚡ Performance: OFF</button>
                 </div>
 
                 <div class="header-links">
@@ -1572,6 +1645,33 @@
 
     <!-- Scripts -->
     <script>
+        // ===== PERFORMANCE MODE TOGGLE =====
+        const perfToggle = document.getElementById('perfToggle');
+        const savedPerfMode = localStorage.getItem('performanceMode') === 'true';
+
+        function applyPerformanceMode(enabled) {
+            if (enabled) {
+                document.body.classList.add('performance-mode');
+                if (perfToggle) perfToggle.textContent = '⚡ Performance: ON';
+            } else {
+                document.body.classList.remove('performance-mode');
+                if (perfToggle) perfToggle.textContent = '⚡ Performance: OFF';
+            }
+        }
+
+        // Apply Performance Mode on load
+        applyPerformanceMode(savedPerfMode);
+
+        if (perfToggle) {
+            perfToggle.addEventListener('click', () => {
+                const isCurrentlyEnabled = document.body.classList.contains('performance-mode');
+                const newState = !isCurrentlyEnabled;
+                localStorage.setItem('performanceMode', newState);
+                applyPerformanceMode(newState);
+                showToast(`Performance Mode ${newState ? 'Enabled' : 'Disabled'}`, 'success');
+            });
+        }
+
         // ===== DARK MODE TOGGLE WITH AURORA COLORS =====
         function updateSidebarProgress() {
             const sidebar = document.querySelector('.sidebar');
