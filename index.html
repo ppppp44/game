@@ -4638,6 +4638,8 @@
             cursor: pointer;
         }
 
+        .music-control button:hover { color: var(--primary-light); }
+
         .music-control input[type="range"] {
             width: 90px;
             accent-color: var(--primary-color);
@@ -5237,6 +5239,7 @@
                     <button id="soundToggle" class="theme-selector" title="Toggle UI Sounds">🔊 UI Sounds: ON</button>
                     <div class="music-control" title="Background Music">
                         <button id="musicToggle" type="button" aria-label="Toggle background music">🎵 Music: ON</button>
+                        <button id="musicManualPlay" type="button" aria-label="Manually play background music">▶ Play</button>
                         <input id="musicVolume" type="range" min="0" max="1" step="0.01" aria-label="Background music volume">
                     </div>
                 </div>
@@ -6192,6 +6195,7 @@
         let musicEnabled = localStorage.getItem('musicEnabled') !== 'false';
         let musicPausedByPerformance = false;
         const musicToggle = document.getElementById('musicToggle');
+        const musicManualPlay = document.getElementById('musicManualPlay');
         const musicVolume = document.getElementById('musicVolume');
         if (musicVolume) musicVolume.value = backgroundMusic.volume;
 
@@ -6202,8 +6206,8 @@
         backgroundMusic.addEventListener('play', updateMusicUI);
         backgroundMusic.addEventListener('pause', updateMusicUI);
 
-        function startBackgroundMusic() {
-            if (musicEnabled && !isPerformanceMode && backgroundMusic.paused) {
+        function startBackgroundMusic(manual = false) {
+            if (musicEnabled && (manual || !isPerformanceMode) && backgroundMusic.paused) {
                 if (musicToggle) musicToggle.textContent = '🎵 Music: ON';
                 backgroundMusic.play().then(updateMusicUI).catch(() => {
                     musicEnabled = false;
