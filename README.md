@@ -1,25 +1,15 @@
 # 🎮 UGS Files - Ultimate Game Stash 
-![Version](https://img.shields.io/badge/UGS-v9.5.2-blue)
-
-![Games](https://img.shields.io/badge/Games-3000%2B-brightgreen)
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-
-![License](https://img.shields.io/badge/License-See%20Disclaimer-lightgrey)
-
-![Themes](https://img.shields.io/badge/Themes-136%2B-purple)
-
-![Responsive](https://img.shields.io/badge/Responsive-Yes-blueviolet)
-
-![Performance Mode](https://img.shields.io/badge/Performance%20Mode-Supported-orange)
-
-![Music](https://img.shields.io/badge/Background%20Music-Supported-pink)
+ ![Version](https://img.shields.io/badge/UGS-v9.5.2-blue)
+ ![Games](https://img.shields.io/badge/Games-3000%2B-brightgreen)
+ ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+ ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+ ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+ ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+ ![License](https://img.shields.io/badge/License-See%20Disclaimer-lightgrey)
+ ![Themes](https://img.shields.io/badge/Themes-136%2B-purple)
+ ![Responsive](https://img.shields.io/badge/Responsive-Yes-blueviolet)
+ ![Performance Mode](https://img.shields.io/badge/Performance%20Mode-Supported-orange)
+ ![Music](https://img.shields.io/badge/Background%20Music-Supported-pink)
 
 > A massive browser-based game launcher with thousands of games, customizable themes, UI sounds, performance controls, and a retro-inspired interface.
 UGS Files (Ultimate Game Stash) is a browser game launcher designed to bring a huge collection of games together in one fast, customizable interface.
