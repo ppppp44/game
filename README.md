@@ -123,6 +123,19 @@ music/background.mp3
 
 Optional background music used by the UGS music system.
 
+### UGS includes a customizable Quick Exit feature for instantly navigating away from the launcher.
+
+Users can configure:
+
+🔗 A custom destination URL
+⌨️ A custom keyboard shortcut
+💾 Persistent settings using localStorage
+
+The URL and shortcut can both be changed directly from the UGS settings.
+
+When the configured shortcut is pressed, UGS navigates the current browser tab to the saved destination.
+
+This feature is fully customizable and designed to make switching between UGS and another user-selected website quick and convenient.
 🎨 Customization
 
 UGS was designed to be heavily customizable.
