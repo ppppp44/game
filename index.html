@@ -6199,6 +6199,9 @@
             if (musicToggle) musicToggle.textContent = backgroundMusic.paused ? '🎵 Music: OFF' : '🎵 Music: ON';
         }
 
+        backgroundMusic.addEventListener('play', updateMusicUI);
+        backgroundMusic.addEventListener('pause', updateMusicUI);
+
         function startBackgroundMusic() {
             if (musicEnabled && !isPerformanceMode && backgroundMusic.paused) {
                 backgroundMusic.play().catch(() => {});
@@ -6234,7 +6237,9 @@
             });
         }
 
-        document.addEventListener('pointerdown', startBackgroundMusic, { once: true });
+        document.addEventListener('pointerdown', (event) => {
+            if (!event.target.closest('.music-control')) startBackgroundMusic();
+        }, { once: true });
 
         // Performance Mode
         let isPerformanceMode = localStorage.getItem('performanceMode') === 'true';
