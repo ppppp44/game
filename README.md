@@ -1,4 +1,4 @@
-# 🎮 UGS Files - Ultimate Game Stash
+# 🎮 UGS Files - Ultimate Game Stash ![Version](https://img.shields.io/badge/UGS-v9.5.2-blue)
 
 > A massive browser-based game launcher with thousands of games, customizable themes, UI sounds, performance controls, and a retro-inspired interface.
 
