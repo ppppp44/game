@@ -6204,7 +6204,13 @@
 
         function startBackgroundMusic() {
             if (musicEnabled && !isPerformanceMode && backgroundMusic.paused) {
-                backgroundMusic.play().catch(() => {});
+                if (musicToggle) musicToggle.textContent = '🎵 Music: ON';
+                backgroundMusic.play().then(updateMusicUI).catch(() => {
+                    musicEnabled = false;
+                    localStorage.setItem('musicEnabled', false);
+                    updateMusicUI();
+                });
+                return;
             }
             updateMusicUI();
         }
@@ -6221,10 +6227,11 @@
         }
 
         if (musicToggle) {
-            musicToggle.textContent = musicEnabled ? '🎵 Music: ON' : '🎵 Music: OFF';
+            updateMusicUI();
             musicToggle.addEventListener('click', () => {
-                musicEnabled = !musicEnabled;
+                musicEnabled = backgroundMusic.paused;
                 localStorage.setItem('musicEnabled', musicEnabled);
+                updateMusicUI();
                 if (musicEnabled) startBackgroundMusic();
                 else { backgroundMusic.pause(); musicPausedByPerformance = false; updateMusicUI(); }
             });
