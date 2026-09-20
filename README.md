@@ -15,7 +15,8 @@
 UGS Files (Ultimate Game Stash) is a browser game launcher designed to bring a huge collection of games together in one fast, customizable interface.
 
 Built with HTML, CSS, and JavaScript, UGS focuses on simplicity, customization, and that classic game-menu feeling. 🕹️
-<img width="3031" height="1382" alt="image" src="https://github.com/user-attachments/assets/9ac80a20-ef60-4766-b2b5-376460ca710b" />
+<img width="3047" height="1394" alt="image" src="https://github.com/user-attachments/assets/1facbe19-3598-4d93-8fab-3ddeaef9d41a" />
+
 ---
 
 ## ✨ Features
