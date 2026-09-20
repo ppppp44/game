@@ -1,10 +1,6 @@
-# 🎮 UGS Files - Ultimate Game Stash ![Version](https://img.shields.io/badge/UGS-v9.5.2-blue)
+# 🎮 UGS Files - Ultimate Game Stash 
+![Version](https://img.shields.io/badge/UGS-v9.5.2-blue)
 
-> A massive browser-based game launcher with thousands of games, customizable themes, UI sounds, performance controls, and a retro-inspired interface.
-UGS Files (Ultimate Game Stash) is a browser game launcher designed to bring a huge collection of games together in one fast, customizable interface.
-
-Built with HTML, CSS, and JavaScript, UGS focuses on simplicity, customization, and that classic game-menu feeling. 🕹️
-<img width="3031" height="1382" alt="image" src="https://github.com/user-attachments/assets/9ac80a20-ef60-4766-b2b5-376460ca710b" />
 ![Games](https://img.shields.io/badge/Games-3000%2B-brightgreen)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
@@ -25,6 +21,11 @@ Built with HTML, CSS, and JavaScript, UGS focuses on simplicity, customization, 
 
 ![Music](https://img.shields.io/badge/Background%20Music-Supported-pink)
 
+> A massive browser-based game launcher with thousands of games, customizable themes, UI sounds, performance controls, and a retro-inspired interface.
+UGS Files (Ultimate Game Stash) is a browser game launcher designed to bring a huge collection of games together in one fast, customizable interface.
+
+Built with HTML, CSS, and JavaScript, UGS focuses on simplicity, customization, and that classic game-menu feeling. 🕹️
+<img width="3031" height="1382" alt="image" src="https://github.com/user-attachments/assets/9ac80a20-ef60-4766-b2b5-376460ca710b" />
 ---
 
 ## ✨ Features
