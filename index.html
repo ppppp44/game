@@ -4618,6 +4618,36 @@
             transform: scale(1.05);
         }
 
+        .music-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(89, 134, 218, 0.15);
+            border: 2px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 4px 10px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .music-control button {
+            background: transparent;
+            border: 0;
+            color: var(--text-primary);
+            padding: 6px 2px;
+            font: 600 15px 'Pixelify Sans', sans-serif;
+            cursor: pointer;
+        }
+
+        .music-control input[type="range"] {
+            width: 90px;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .music-control:hover { box-shadow: 0 0 25px rgba(89, 134, 218, 0.5); }
+
+        body.performance-mode .music-control { box-shadow: none !important; transition: none !important; }
+
         .search-container {
             display: flex;
             justify-content: center;
@@ -5166,6 +5196,7 @@
     </style>
 </head>
 <body>
+    <audio id="backgroundMusic" src="music/background.mp3" loop preload="none"></audio>
     <div class="aurora-bg">
         <div class="aurora-layer"></div>
         <div class="aurora-layer"></div>
@@ -5204,6 +5235,10 @@
                     <button id="themeSelectorBtn" class="theme-selector" title="Select Theme" aria-label="Select Theme">🎨 Themes</button>
                     <button id="perfToggle" class="theme-selector" title="Toggle Performance Mode">⚡ Performance: OFF</button>
                     <button id="soundToggle" class="theme-selector" title="Toggle UI Sounds">🔊 UI Sounds: ON</button>
+                    <div class="music-control" title="Background Music">
+                        <button id="musicToggle" type="button" aria-label="Toggle background music">🎵 Music: ON</button>
+                        <input id="musicVolume" type="range" min="0" max="1" step="0.01" aria-label="Background music volume">
+                    </div>
                 </div>
 
                 <div class="header-links">
@@ -5257,8 +5292,8 @@
         <div class="modal-content">
             <div class="modal-header">🎮 About UGS</div>
             <div class="modal-body">
-                <p>Made by a student🗿</p>
-                <p style="margin-top: 15px;">heh.</p>
+                <p>Made by a PLMS student🗿</p>
+                <p style="margin-top: 15px;">Not gonna say my name since i dont like getting in trouble.</p>
             </div>
             <div class="modal-footer">
                 <button class="modal-btn primary" onclick="closeModal('infoModal')">Got it!</button>
@@ -6150,6 +6185,57 @@
             });
         }
 
+        // Background Music
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        backgroundMusic.volume = Number(localStorage.getItem('musicVolume') ?? 0.35);
+
+        let musicEnabled = localStorage.getItem('musicEnabled') !== 'false';
+        let musicPausedByPerformance = false;
+        const musicToggle = document.getElementById('musicToggle');
+        const musicVolume = document.getElementById('musicVolume');
+        if (musicVolume) musicVolume.value = backgroundMusic.volume;
+
+        function updateMusicUI() {
+            if (musicToggle) musicToggle.textContent = backgroundMusic.paused ? '🎵 Music: OFF' : '🎵 Music: ON';
+        }
+
+        function startBackgroundMusic() {
+            if (musicEnabled && !isPerformanceMode && backgroundMusic.paused) {
+                backgroundMusic.play().catch(() => {});
+            }
+            updateMusicUI();
+        }
+
+        function applyMusicPerformanceState() {
+            if (isPerformanceMode) {
+                musicPausedByPerformance = musicEnabled;
+                backgroundMusic.pause();
+            } else if (musicPausedByPerformance && musicEnabled) {
+                musicPausedByPerformance = false;
+                startBackgroundMusic();
+            }
+            updateMusicUI();
+        }
+
+        if (musicToggle) {
+            musicToggle.textContent = musicEnabled ? '🎵 Music: ON' : '🎵 Music: OFF';
+            musicToggle.addEventListener('click', () => {
+                musicEnabled = !musicEnabled;
+                localStorage.setItem('musicEnabled', musicEnabled);
+                if (musicEnabled) startBackgroundMusic();
+                else { backgroundMusic.pause(); musicPausedByPerformance = false; updateMusicUI(); }
+            });
+        }
+
+        if (musicVolume) {
+            musicVolume.addEventListener('input', () => {
+                backgroundMusic.volume = Number(musicVolume.value);
+                localStorage.setItem('musicVolume', musicVolume.value);
+            });
+        }
+
+        document.addEventListener('pointerdown', startBackgroundMusic, { once: true });
+
         // Performance Mode
         let isPerformanceMode = localStorage.getItem('performanceMode') === 'true';
         const perfToggle = document.getElementById('perfToggle');
@@ -6162,6 +6248,7 @@
                 document.body.classList.remove('performance-mode');
                 if (perfToggle) perfToggle.textContent = '⚡ Performance: OFF';
             }
+            applyMusicPerformanceState();
         }
         applyPerformanceMode();
 
