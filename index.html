@@ -6241,6 +6241,14 @@
             });
         }
 
+        if (musicManualPlay) {
+            musicManualPlay.addEventListener('click', () => {
+                musicEnabled = true;
+                localStorage.setItem('musicEnabled', true);
+                startBackgroundMusic(true);
+            });
+        }
+
         if (musicVolume) {
             musicVolume.addEventListener('input', () => {
                 backgroundMusic.volume = Number(musicVolume.value);
@@ -6382,6 +6390,16 @@
         document.querySelectorAll('.cl-display-name').forEach(el => el.remove());
     </script>
     <script src="https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@latest/game.js"></script>
+    <script>
+        // Format only the visible game names; the game.js click handlers retain the original IDs.
+        document.querySelectorAll('.letter-section input[type="button"]').forEach(btn => {
+            const file = btn.value;
+            if (!file.startsWith('cl')) return;
+            btn.dataset.gameId = file;
+            const displayName = file.replace(/^cl/, '');
+            btn.value = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile@latest/searchbut.js"></script>
 </body>
 </html>
