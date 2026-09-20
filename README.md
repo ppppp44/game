@@ -42,7 +42,7 @@ Sounds are integrated into the existing interface without interfering with game 
 ### 🎵 Background Music
 UGS supports background music through:
 
-```text
+
 music/background.mp3
 
 The music system is designed to work independently from the UI sound effects.
