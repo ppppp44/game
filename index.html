@@ -4650,6 +4650,24 @@
 
         body.performance-mode .music-control { box-shadow: none !important; transition: none !important; }
 
+        .quick-exit-form { display: grid; gap: 14px; }
+        .quick-exit-form label { color: var(--text-secondary); font-weight: 600; }
+        .quick-exit-form input[type="url"],
+        .quick-exit-form input[type="text"] {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-darker);
+            color: var(--text-primary);
+            font: 15px 'Pixelify Sans', sans-serif;
+            outline: none;
+        }
+        .quick-exit-form input:focus { border-color: var(--primary-color); box-shadow: 0 0 16px var(--border-color); }
+        .quick-exit-row { display: flex; gap: 10px; align-items: center; }
+        .quick-exit-row .modal-btn { flex-shrink: 0; }
+        .quick-exit-status { min-height: 1.3em; color: var(--accent-color); font-size: 13px; }
+
         .search-container {
             display: flex;
             justify-content: center;
@@ -5235,6 +5253,7 @@
                 
                 <div class="header-controls">
                     <button id="themeSelectorBtn" class="theme-selector" title="Select Theme" aria-label="Select Theme">🎨 Themes</button>
+                    <button id="settingsBtn" class="theme-selector" title="Open Settings" aria-label="Open Settings">⚙️ Settings</button>
                     <button id="perfToggle" class="theme-selector" title="Toggle Performance Mode">⚡ Performance: OFF</button>
                     <button id="soundToggle" class="theme-selector" title="Toggle UI Sounds">🔊 UI Sounds: ON</button>
                     <div class="music-control" title="Background Music">
@@ -5300,6 +5319,30 @@
             </div>
             <div class="modal-footer">
                 <button class="modal-btn primary" onclick="closeModal('infoModal')">Got it!</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">⚙️ Settings</div>
+            <div class="modal-body quick-exit-form">
+                <h3 style="color: var(--primary-light);">Quick Exit</h3>
+                <label for="quickExitUrl">Quick Exit URL</label>
+                <input id="quickExitUrl" type="url" placeholder="https://example.com" autocomplete="off">
+                <div class="quick-exit-row">
+                    <button class="modal-btn primary" id="quickExitUrlSave" type="button">Save URL</button>
+                    <span class="quick-exit-status" id="quickExitUrlStatus" aria-live="polite"></span>
+                </div>
+                <label for="quickExitShortcut">Quick Exit Shortcut</label>
+                <div class="quick-exit-row">
+                    <input id="quickExitShortcut" type="text" readonly placeholder="Not configured">
+                    <button class="modal-btn secondary" id="quickExitSetShortcut" type="button">Set Shortcut</button>
+                </div>
+                <div class="quick-exit-status" id="quickExitShortcutStatus" aria-live="polite"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn primary" onclick="closeModal('settingsModal'); return false;">Done</button>
             </div>
         </div>
     </div>
@@ -6360,6 +6403,88 @@
                 playTone(300, 'sine', 0.1);
             });
         }
+
+        // Quick Exit Settings
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingsModal = document.getElementById('settingsModal');
+        const quickExitUrl = document.getElementById('quickExitUrl');
+        const quickExitUrlSave = document.getElementById('quickExitUrlSave');
+        const quickExitUrlStatus = document.getElementById('quickExitUrlStatus');
+        const quickExitShortcut = document.getElementById('quickExitShortcut');
+        const quickExitSetShortcut = document.getElementById('quickExitSetShortcut');
+        const quickExitShortcutStatus = document.getElementById('quickExitShortcutStatus');
+        let quickExitCapturing = false;
+
+        function validQuickExitUrl(value) {
+            try {
+                const parsed = new URL(value);
+                return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+            } catch (error) {
+                return false;
+            }
+        }
+
+        function shortcutLabel(shortcut) {
+            return [...shortcut.ctrl ? ['Ctrl'] : [], ...shortcut.alt ? ['Alt'] : [], ...shortcut.shift ? ['Shift'] : [], ...shortcut.meta ? ['Meta'] : [], [shortcut.key]].join('+');
+        }
+
+        function shortcutFromEvent(event) {
+            return { ctrl: event.ctrlKey, alt: event.altKey, shift: event.shiftKey, meta: event.metaKey, key: event.key.toLowerCase() };
+        }
+
+        function shortcutMatches(event, shortcut) {
+            return event.ctrlKey === shortcut.ctrl && event.altKey === shortcut.alt && event.shiftKey === shortcut.shift && event.metaKey === shortcut.meta && event.key.toLowerCase() === shortcut.key;
+        }
+
+        const savedQuickExitUrl = localStorage.getItem('quickExitUrl') || '';
+        let savedQuickExitShortcut = null;
+        try { savedQuickExitShortcut = JSON.parse(localStorage.getItem('quickExitShortcut') || 'null'); } catch (error) { savedQuickExitShortcut = null; }
+        if (quickExitUrl) quickExitUrl.value = validQuickExitUrl(savedQuickExitUrl) ? savedQuickExitUrl : '';
+        if (quickExitShortcut && savedQuickExitShortcut && savedQuickExitShortcut.key) quickExitShortcut.value = shortcutLabel(savedQuickExitShortcut);
+
+        if (settingsBtn) settingsBtn.addEventListener('click', () => {
+            settingsModal.classList.add('show');
+            playTone(400, 'sine', 0.1);
+        });
+
+        if (quickExitUrlSave) quickExitUrlSave.addEventListener('click', () => {
+            if (!quickExitUrl || !validQuickExitUrl(quickExitUrl.value.trim())) {
+                if (quickExitUrlStatus) quickExitUrlStatus.textContent = 'Enter a valid http:// or https:// URL.';
+                return;
+            }
+            localStorage.setItem('quickExitUrl', quickExitUrl.value.trim());
+            if (quickExitUrlStatus) quickExitUrlStatus.textContent = 'URL saved.';
+            playTone(600, 'sine', 0.08);
+        });
+
+        if (quickExitSetShortcut) quickExitSetShortcut.addEventListener('click', () => {
+            quickExitCapturing = true;
+            quickExitSetShortcut.textContent = 'Press a shortcut…';
+            if (quickExitShortcutStatus) quickExitShortcutStatus.textContent = 'Press your desired key combination…';
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (quickExitCapturing) {
+                if (['Control', 'Alt', 'Shift', 'Meta'].includes(event.key)) return;
+                event.preventDefault();
+                if (!(event.ctrlKey || event.altKey || event.metaKey)) {
+                    if (quickExitShortcutStatus) quickExitShortcutStatus.textContent = 'Use at least one modifier, such as Ctrl, Alt, or Meta.';
+                    return;
+                }
+                savedQuickExitShortcut = shortcutFromEvent(event);
+                localStorage.setItem('quickExitShortcut', JSON.stringify(savedQuickExitShortcut));
+                if (quickExitShortcut) quickExitShortcut.value = shortcutLabel(savedQuickExitShortcut);
+                if (quickExitSetShortcut) quickExitSetShortcut.textContent = 'Set Shortcut';
+                if (quickExitShortcutStatus) quickExitShortcutStatus.textContent = 'Shortcut saved.';
+                quickExitCapturing = false;
+                return;
+            }
+            if (!savedQuickExitShortcut || !savedQuickExitShortcut.key || event.target.matches('input, textarea, select, [contenteditable="true"]')) return;
+            if (shortcutMatches(event, savedQuickExitShortcut) && validQuickExitUrl(localStorage.getItem('quickExitUrl') || '')) {
+                event.preventDefault();
+                window.location.href = localStorage.getItem('quickExitUrl');
+            }
+        });
 
         // Modal Utilities
         function showInfo() {
