@@ -80,6 +80,70 @@ Performance Mode can be saved locally and restored automatically.
 
 Quickly find games without manually scrolling through the entire library.
 
+🧠 Theme AI Lab
+
+UGS also includes a custom Theme AI Lab for creating your own themes.
+
+Describe the theme you want, generate it, preview it, and apply it directly to UGS.
+
+Workflow:
+
+Describe → Generate → Preview → Apply → Save
+
+Custom themes can be created repeatedly, giving UGS effectively unlimited custom theme possibilities.
+
+Generated themes can be saved and remain available after reloading UGS.
+
+🧪 Theme Laboratory
+
+Experiment with theme colors and create personalized UGS themes without modifying the original built-in themes.
+
+🌀 Theme Roulette
+
+Randomly discover themes from the massive UGS theme collection.
+
+🧬 Theme Mutation
+
+Create variations of existing themes while preserving their overall visual identity.
+
+🗺️ Theme Universe
+
+Explore themes through different visual styles and aesthetic groups.
+
+🕰️ UGS Time Machine
+
+Explore different visual eras and retro-inspired interface styles.
+
+👾 Theme Boss Battles
+
+Experimental visual themes designed to push the UGS interface into increasingly ridiculous territory.
+
+🧿 Theme DNA
+
+View the visual color palette and design characteristics of themes.
+
+🌐 UGS OS Mode
+
+A fake desktop-style UGS interface that runs entirely inside the browser.
+
+📼 Retro Boot Sequence
+
+Optional retro-inspired startup animation for UGS.
+
+🖱️ Custom Cursor
+
+UGS includes a customizable SVG cursor.
+
+Custom cursor colors
+Live color preview
+HEX/RGB color controls
+Preview before applying
+Apply/save functionality
+Reset to the default/theme cursor color
+Saved preferences
+
+The cursor itself remains an SVG while its appearance can be customized.
+
 📱 Responsive Interface
 
 The launcher is designed to work across different screen sizes, including desktop and mobile-sized displays.
