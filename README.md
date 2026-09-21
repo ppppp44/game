@@ -15,7 +15,8 @@
 UGS Files (Ultimate Game Stash) is a browser game launcher designed to bring a huge collection of games together in one fast, customizable interface.
 
 Built with HTML, CSS, and JavaScript, UGS focuses on simplicity, customization, and that classic game-menu feeling. 🕹️
-<img width="3047" height="1394" alt="image" src="https://github.com/user-attachments/assets/1facbe19-3598-4d93-8fab-3ddeaef9d41a" />
+<img width="3040" height="1413" alt="image" src="https://github.com/user-attachments/assets/cb8cf783-a33a-4969-a904-8758836e0225" />
+
 
 ---
 
@@ -44,7 +45,8 @@ Themes range from:
 Themes can be previewed before being saved.
 
 Your selected theme is stored locally so it can persist between sessions.
-<img width="3010" height="1387" alt="image" src="https://github.com/user-attachments/assets/7ed57327-edc2-4448-a22f-a730ae5c6461" />
+<img width="2981" height="1361" alt="image" src="https://github.com/user-attachments/assets/1ba8e8b4-2a44-435d-9f52-d6eea772efc2" />
+
 
 ### 🔊 UI Sounds
 UGS includes interface sound effects for a more game-like experience.
@@ -79,6 +81,7 @@ Performance Mode can be saved locally and restored automatically.
 🔎 Game Search
 
 Quickly find games without manually scrolling through the entire library.
+<img width="3050" height="1410" alt="image" src="https://github.com/user-attachments/assets/b7261d0f-2b5e-4831-a28b-309fac25930e" />
 
 🧠 Theme AI Lab
 
@@ -129,6 +132,7 @@ A fake desktop-style UGS interface that runs entirely inside the browser.
 📼 Retro Boot Sequence
 
 Optional retro-inspired startup animation for UGS.
+<img width="3035" height="1389" alt="image" src="https://github.com/user-attachments/assets/91e3cdce-7073-4dce-beee-6305185c04b2" />
 
 🖱️ Custom Cursor
 
@@ -147,7 +151,8 @@ The cursor itself remains an SVG while its appearance can be customized.
 📱 Responsive Interface
 
 The launcher is designed to work across different screen sizes, including desktop and mobile-sized displays.
-<img width="3067" height="1404" alt="image" src="https://github.com/user-attachments/assets/de36defe-6108-4927-82e2-3c6def2739f6" />
+<img width="3058" height="1410" alt="image" src="https://github.com/user-attachments/assets/9cb7f975-f8d8-4f8d-a21e-01f930895f16" />
+
 
 💾 Local Settings
 
