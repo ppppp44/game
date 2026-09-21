@@ -5022,6 +5022,18 @@
 
         .modal-btn.secondary:hover { background: rgba(89, 134, 218, 0.2); }
 
+        #parentThemeModal .modal-content, #parentThemeModal .modal-body { box-sizing: border-box; min-width: 0; overflow-x: hidden; }
+        #parentThemeModal .parent-feature-panel { min-width: 0; max-width: 100%; }
+        #parentThemeModal .cursor-picker { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; }
+        #parentThemeModal .cursor-color-values { min-width: 0; grid-template-columns: minmax(0, auto) minmax(0, 1fr) minmax(0, 1fr); }
+        #parentThemeModal .cursor-color-values label, #parentThemeModal .cursor-color-values input { min-width: 0; max-width: 100%; box-sizing: border-box; }
+        #parentThemeModal .cursor-color-values label { overflow: hidden; }
+        #parentThemeModal .parent-theme-result { overflow-wrap: anywhere; }
+        @media (max-width: 480px) {
+            #parentThemeModal .cursor-color-values { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+            #parentThemeModal .cursor-color-preview { grid-column: 1 / -1; }
+        }
+
         #themeModal .modal-content {
             max-width: 900px;
             max-height: 90vh;
@@ -5029,6 +5041,121 @@
             flex-direction: column;
             padding: 30px;
         }
+
+        #themeSearchInput {
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0 0 15px;
+            padding: 10px 14px;
+            background: var(--bg-card);
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font: 600 15px 'Pixelify Sans', sans-serif;
+            outline: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        #themeSearchInput::placeholder { color: var(--text-tertiary); }
+        #themeSearchInput:focus { box-shadow: 0 0 15px var(--primary-color); }
+
+        .theme-tabs { display: flex; gap: 8px; margin: 0 0 10px; }
+        .theme-tab { flex: 1; padding: 9px 12px; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-light); color: var(--text-secondary); font: 600 14px 'Pixelify Sans', sans-serif; cursor: pointer; }
+        .theme-tab.active { background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: var(--text-primary); border-color: var(--primary-color); }
+        #themeModal .theme-grid[hidden], #themeModal .custom-theme-empty[hidden] { display: none !important; }
+        .custom-theme-card { position: relative; }
+        .custom-theme-card .theme-card { min-height: 100%; }
+        .custom-theme-badge { align-self: flex-start; color: var(--accent-color); font-size: 11px; }
+
+        #themeNoResults {
+            display: none;
+            padding: 25px 10px;
+            color: var(--text-secondary);
+            font: 600 16px 'Pixelify Sans', sans-serif;
+            text-align: center;
+        }
+
+        .parent-theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 14px;
+            overflow-y: auto;
+            padding: 4px;
+            margin: 0 0 20px;
+        }
+
+        .parent-theme-card {
+            min-height: 112px;
+            padding: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            background: linear-gradient(145deg, var(--bg-card), var(--bg-light));
+            color: var(--text-primary);
+            text-align: left;
+            font-family: 'Pixelify Sans', sans-serif;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .parent-theme-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 18px var(--primary-color);
+        }
+
+        .parent-theme-icon { display: block; font-size: 25px; margin-bottom: 8px; }
+        .parent-theme-card strong { display: block; color: var(--primary-light); font-size: 16px; }
+        .parent-theme-card small { display: block; margin-top: 6px; color: var(--text-secondary); line-height: 1.35; }
+
+        .parent-feature-panel { display: none; }
+        .parent-feature-panel.active { display: block; }
+        .parent-feature-panel h3 { margin: 0 0 12px; color: var(--primary-light); font-family: 'Pixelify Sans', sans-serif; }
+        .parent-feature-panel p { color: var(--text-secondary); line-height: 1.5; }
+        .parent-panel-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+        .parent-panel-actions input[type="color"] { width: 44px; height: 38px; padding: 2px; }
+        .parent-panel-actions input[type="text"], .parent-panel-actions textarea, .parent-panel-actions select {
+            flex: 1 1 180px;
+            min-width: 0;
+            padding: 10px 12px;
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font: 14px 'Pixelify Sans', sans-serif;
+        }
+        .parent-panel-actions textarea { min-height: 76px; resize: vertical; flex-basis: 100%; }
+        .parent-theme-result { min-height: 30px; margin-top: 12px; color: var(--text-secondary); }
+        .parent-theme-swatches { display: flex; gap: 8px; margin: 14px 0; }
+        .parent-theme-swatches span { width: 44px; height: 30px; border-radius: 6px; border: 1px solid var(--border-color); }
+        .parent-theme-timeline { display: grid; gap: 9px; margin: 14px 0; }
+        .parent-theme-timeline button { text-align: left; }
+        .universe-spiderweb {
+            position: relative;
+            width: min(100%, 560px);
+            aspect-ratio: 1.7;
+            margin: 10px auto 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            background: radial-gradient(circle at center, var(--bg-light) 0 4%, transparent 4.5%), repeating-radial-gradient(circle at center, transparent 0 12%, var(--border-color) 12.2% 12.7%, transparent 13% 24%), linear-gradient(135deg, var(--bg-darker), var(--bg-card));
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.28);
+        }
+        .universe-spiderweb::before, .universe-spiderweb::after { content: ''; position: absolute; inset: 50% 0 auto; height: 1px; background: var(--border-color); transform: rotate(25deg); transform-origin: center; pointer-events: none; }
+        .universe-spiderweb::after { transform: rotate(-25deg); }
+        .universe-node { position: absolute; transform: translate(-50%, -50%); z-index: 1; min-width: 92px; padding: 8px 10px; font-size: 13px; }
+        .universe-node.selected { background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: var(--text-primary); box-shadow: 0 0 18px var(--primary-color); }
+        .roulette-spinning { animation: rouletteSpin 0.28s linear infinite; }
+        @keyframes rouletteSpin { 0% { transform: rotate(-2deg) scale(1); } 50% { transform: rotate(2deg) scale(1.05); } 100% { transform: rotate(-2deg) scale(1); } }
+        body.performance-mode .roulette-spinning { animation: none; }
+        .parent-theme-desktop { padding: 14px; min-height: 170px; border-radius: 10px; background: linear-gradient(135deg, var(--bg-darker), var(--primary-color)); }
+        .parent-theme-window { padding: 12px; margin: 8px 0; border-radius: 7px; background: var(--bg-card); border: 1px solid var(--border-color); }
+        .parent-theme-boot { display: none; position: fixed; inset: 0; z-index: 1000; place-items: center; background: var(--bg-darker); color: var(--primary-light); font: 22px 'Pixelify Sans', sans-serif; text-align: center; }
+        .parent-theme-boot.show { display: grid; }
+        body.performance-mode .parent-theme-card { transition: none; }
+        body.performance-mode .parent-theme-card:hover { transform: none; box-shadow: var(--shadow-sm); }
+        body.parent-boss-glitch .app-wrapper { filter: hue-rotate(25deg) saturate(1.35); }
+        body.parent-boss-invert .app-wrapper { filter: invert(0.9) hue-rotate(180deg); }
 
         .theme-grid {
             display: grid;
@@ -13276,6 +13403,7 @@
                 
                 <div class="header-controls">
                     <button id="themeSelectorBtn" class="theme-selector" title="Select Theme" aria-label="Select Theme">🎨 Themes</button>
+                    <button id="parentThemeBtn" class="theme-selector" title="Open Parent Theme Hub" aria-label="Open Parent Theme Hub">🧬 Parent Theme</button>
                     <button id="settingsBtn" class="theme-selector" title="Open Settings" aria-label="Open Settings">⚙️ Settings</button>
                     <button id="perfToggle" class="theme-selector" title="Toggle Performance Mode">⚡ Performance: OFF</button>
                     <button id="soundToggle" class="theme-selector" title="Toggle UI Sounds">🔊 UI Sounds: ON</button>
@@ -13393,6 +13521,12 @@
     <div class="modal" id="themeModal">
         <div class="modal-content">
             <div class="modal-header" style="text-align: center;">🎨 Select Theme</div>
+            <input id="themeSearchInput" type="search" placeholder="Search themes..." aria-label="Search themes" autocomplete="off">
+            <div class="theme-tabs" role="tablist" aria-label="Theme collections">
+                <button class="theme-tab active" id="builtInThemesTab" type="button" role="tab" aria-selected="true">Built-in Themes</button>
+                <button class="theme-tab" id="customThemesTab" type="button" role="tab" aria-selected="false">Custom Themes</button>
+            </div>
+            <div id="themeNoResults" aria-live="polite">No themes found</div>
             <div class="theme-grid">
                 
                 <div class="theme-card-container" data-theme-id="dark">
@@ -20216,10 +20350,47 @@
                     </div>
                 </div>
             </div>
+            <div id="customThemeEmpty" class="custom-theme-empty" hidden>No custom themes saved yet. Create one in Theme Laboratory.</div>
+            <div id="customThemeGrid" class="theme-grid custom-theme-grid" hidden></div>
             <div class="modal-footer" style="justify-content: space-between;">
                 <button class="modal-btn secondary" id="themeBackBtn">← Back</button>
                 <button class="modal-btn primary" id="themeConfirmBtn">✓ Confirm</button>
             </div>
+        </div>
+    </div>
+
+    <div class="modal" id="parentThemeModal">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: center;">🧬 Parent Theme Hub</div>
+            <div class="modal-body" style="margin-bottom: 12px;"><div id="parentThemeModalIntro">A premium UGS theme workshop built on your existing collection.</div>            <div id="parentThemeHub" class="parent-feature-panel active">
+                <div class="parent-theme-grid">
+                    <button class="parent-theme-card" data-parent-feature="mutation"><span class="parent-theme-icon">🧬</span><strong>Theme Mutation</strong><small>Create a safe visual variation of an existing theme.</small></button>
+                    <button class="parent-theme-card" data-parent-feature="roulette"><span class="parent-theme-icon">🌀</span><strong>Theme Roulette</strong><small>Spin through the existing theme collection.</small></button>
+                    <button class="parent-theme-card" data-parent-feature="universe"><span class="parent-theme-icon">🗺️</span><strong>Theme Universe</strong><small>Browse themes by aesthetic region.</small></button>
+                    <button class="parent-theme-card" data-parent-feature="time"><span class="parent-theme-icon">🕰️</span><strong>UGS Time Machine</strong><small>Jump between visual eras and styles.</small></button>
+                    <button class="parent-theme-card" data-parent-feature="lab"><span class="parent-theme-icon">🧪</span><strong>Theme Laboratory</strong><small>Experiment with colors and save a custom look.</small></button>
+                    <button class="parent-theme-card" data-parent-feature="boss"><span class="parent-theme-icon">👾</span><strong>Theme Boss Battles</strong><small>Activate cosmetic experimental effects.</small></button>
+                    <button class="parent-theme-card" data-parent-feature="dna"><span class="parent-theme-icon">🧿</span><strong>Theme DNA</strong><small>Inspect a theme’s compact color palette.</small></button>
+                    <button class="parent-theme-card" data-parent-feature="os"><span class="parent-theme-icon">🌐</span><strong>UGS OS Mode</strong><small>Open a safe, fake desktop inside the browser.</small></button>
+                    <button class="parent-theme-card" data-parent-feature="boot"><span class="parent-theme-icon">📼</span><strong>Retro Boot Sequence</strong><small>Preview an optional UGS boot animation.</small></button>
+                    <button class="parent-theme-card" data-parent-feature="ai"><span class="parent-theme-icon">🧠</span><strong>Theme AI Lab</strong><small>Describe a look and get a local configuration.</small></button>
+                </div>
+            </div>
+            <div id="parentFeaturePanels">
+                <section class="parent-feature-panel" data-parent-panel="mutation"><h3>🧬 Theme Mutation</h3><p>Choose an existing theme and create a temporary color variation. The original theme definition is never changed.</p><div class="parent-panel-actions"><select id="mutationThemeSelect" aria-label="Theme to mutate"></select><input id="mutationColor" type="color" value="#5986da" aria-label="Mutation color"><button class="modal-btn primary" id="mutationApplyBtn" type="button">Preview Mutation</button><button class="modal-btn secondary" id="mutationCommitBtn" type="button">Apply Base Theme</button></div><div class="parent-theme-result" id="mutationResult"></div></section>
+                <section class="parent-feature-panel" data-parent-panel="roulette"><h3>🌀 Theme Roulette</h3><p>Spin through the existing theme cards, preview the winner, then apply it when ready.</p><div class="parent-panel-actions"><button class="modal-btn primary" id="rouletteSpinBtn" type="button">Spin Roulette</button><button class="modal-btn secondary" id="rouletteApplyBtn" type="button" disabled>Apply Selected Theme</button></div><div class="parent-theme-result" id="rouletteResult"></div></section>
+                <section class="parent-feature-panel" data-parent-panel="universe"><h3>🗺️ Theme Universe</h3><p>Navigate a spiderweb of aesthetic regions built from the existing theme cards.</p><div id="universeMap" class="universe-spiderweb" aria-label="Theme Universe map"></div><div class="parent-panel-actions" id="universeRegions"></div><button class="modal-btn primary" id="universeApplyBtn" type="button" disabled>Apply Selected Region Theme</button><div class="parent-theme-result" id="universeResult"></div></section>
+                <section class="parent-feature-panel" data-parent-panel="time"><h3>🕰️ UGS Time Machine</h3><p>Browse broad visual eras by sending a keyword to the existing Theme Search.</p><div class="parent-theme-timeline"><button class="modal-btn secondary" data-time-query="retro">Arcade &amp; Retro</button><button class="modal-btn secondary" data-time-query="windows">Desktop Era</button><button class="modal-btn secondary" data-time-query="ps">Console Generations</button><button class="modal-btn secondary" data-time-query="neon">Neon Future</button></div></section>
+                <section class="parent-feature-panel" data-parent-panel="lab"><h3>🧪 Theme Laboratory</h3><p>Use the same HSV, HEX, and RGB picker from Cursor Color to build a custom palette. Choose a color channel, edit it, then preview or save the palette.</p><div class="parent-panel-actions"><label for="labColorChannel">Color Channel <select id="labColorChannel" aria-label="Laboratory color channel"><option value="background">Background</option><option value="primary">Primary</option><option value="accent">Accent</option></select></label></div><input id="labColorPicker" type="color" value="#0f0f1e" aria-label="Laboratory color picker" tabindex="-1"><div class="cursor-picker" aria-label="Custom Theme Laboratory color picker"><div class="cursor-sv-area" id="labSvArea" role="slider" aria-label="Laboratory saturation and brightness"><span class="cursor-sv-knob" id="labSvKnob"></span></div><input class="cursor-hue-slider" id="labHueSlider" type="range" min="0" max="360" value="220" aria-label="Laboratory hue"><div class="cursor-color-values"><span class="cursor-color-preview"><span class="cursor-color-swatch" id="labColorSwatch"></span><span>Preview</span></span><label>HEX <input id="labHexInput" type="text" value="#0F0F1E" maxlength="7" spellcheck="false" aria-label="Laboratory HEX color value"></label><label>RGB <input id="labRgbInput" type="text" value="15, 15, 30" spellcheck="false" aria-label="Laboratory RGB color value"></label></div><div class="cursor-color-value" id="labColorValue">#0F0F1E</div></div><div class="parent-panel-actions"><button class="modal-btn primary" id="labApplyBtn" type="button">Preview Lab Palette</button><input id="labThemeName" type="text" placeholder="Custom theme name" aria-label="Custom theme name"><button class="modal-btn secondary" id="labSaveBtn" type="button">Save Custom Theme</button></div><div class="parent-theme-result" id="labResult"></div></section>
+                <section class="parent-feature-panel" data-parent-panel="boss"><h3>👾 Theme Boss Battles</h3><p>Cosmetic boss modes only. They affect the current page’s presentation and never touch game launching.</p><div class="parent-panel-actions"><button class="modal-btn primary" data-boss-mode="glitch" type="button">Glitch Boss</button><button class="modal-btn primary" data-boss-mode="invert" type="button">Invert Boss</button><button class="modal-btn secondary" id="bossResetBtn" type="button">Reset Effects</button></div><div class="parent-theme-result" id="bossResult"></div></section>
+                <section class="parent-feature-panel" data-parent-panel="dna"><h3>🧿 Theme DNA</h3><p>Inspect the palette represented by any existing theme.</p><div class="parent-panel-actions"><select id="dnaThemeSelect" aria-label="Theme DNA theme"></select><button class="modal-btn primary" id="dnaApplyBtn" type="button">Apply This Theme</button></div><div class="parent-theme-swatches" id="dnaSwatches"></div><div class="parent-theme-result" id="dnaResult"></div></section>
+                <section class="parent-feature-panel" data-parent-panel="os"><h3>🌐 UGS OS Mode</h3><p>This is a contained fake desktop interface. It does not interact with your operating system.</p><div class="parent-theme-desktop"><strong>UGS Desktop</strong><div class="parent-theme-window">Theme Manager — ready<br><small>All tools run inside this browser tab.</small></div><button class="modal-btn secondary" type="button" id="osRefreshBtn">Refresh Desktop</button></div></section>
+                <section class="parent-feature-panel" data-parent-panel="boot"><h3>📼 Retro Boot Sequence</h3><p>Preview the optional animation only when requested; it is never part of normal loading.</p><div class="parent-panel-actions"><button class="modal-btn primary" id="bootPreviewBtn" type="button">Preview Boot</button></div><div class="parent-theme-result" id="bootResult"></div></section>
+                <section class="parent-feature-panel" data-parent-panel="ai"><h3>🧠 Theme AI Lab</h3><p>Describe a desired look for a local, deterministic configuration suggestion. No external AI service is used.</p><div class="parent-panel-actions"><textarea id="aiThemePrompt" placeholder="e.g. a calm ocean arcade theme"></textarea><button class="modal-btn primary" id="aiGenerateBtn" type="button">Generate Local Config</button></div><div class="parent-theme-result" id="aiResult"></div></section>
+            </div>
+            <div class="parent-theme-boot" id="parentThemeBoot" aria-hidden="true"><div>UGS SYSTEM<br><small>Loading retro interface…</small></div></div>
+<div id="parentThemeModalBack" class="parent-panel-actions"><button class="modal-btn secondary" data-parent-back type="button">← Back to Parent Theme</button></div></div>
+            <div class="modal-footer"><button class="modal-btn secondary" id="parentThemeCloseBtn" type="button">Close</button></div>
         </div>
     </div>
 
@@ -20385,9 +20556,79 @@
         const themeBackBtn = document.getElementById('themeBackBtn');
         const themeConfirmBtn = document.getElementById('themeConfirmBtn');
         const themeCards = document.querySelectorAll('.theme-card-container');
+        const themeSearchInput = document.getElementById('themeSearchInput');
+        const themeNoResults = document.getElementById('themeNoResults');
+        const builtInThemesTab = document.getElementById('builtInThemesTab');
+        const customThemesTab = document.getElementById('customThemesTab');
+        const customThemeGrid = document.getElementById('customThemeGrid');
+        const customThemeEmpty = document.getElementById('customThemeEmpty');
+        let activeThemeTab = 'built-in';
+        let previewCustomTheme = null;
+        let customThemes = [];
+        try { customThemes = JSON.parse(localStorage.getItem('ugsCustomThemes') || '[]'); } catch (error) { customThemes = []; }
         
         let currentTheme = localStorage.getItem('theme') || 'dark';
         let previewTheme = currentTheme;
+
+        function filterThemes() {
+            const query = (themeSearchInput ? themeSearchInput.value : '').trim().toLowerCase();
+            if (activeThemeTab === 'custom') {
+                const customCards = customThemeGrid ? customThemeGrid.querySelectorAll('.custom-theme-card') : [];
+                let visibleCustomCount = 0;
+                customCards.forEach(card => { const matches = !query || card.dataset.themeName.toLowerCase().includes(query); card.style.display = matches ? '' : 'none'; if (matches) visibleCustomCount++; });
+                if (themeNoResults) themeNoResults.style.display = customCards.length && !visibleCustomCount ? 'block' : 'none';
+                return;
+            }
+            let visibleThemeCount = 0;
+            themeCards.forEach(card => {
+                const themeName = card.querySelector('.theme-name-label');
+                const matches = !query || (themeName && themeName.textContent.toLowerCase().includes(query));
+                card.style.display = matches ? '' : 'none';
+                if (matches) visibleThemeCount++;
+            });
+            if (themeNoResults) themeNoResults.style.display = visibleThemeCount ? 'none' : 'block';
+        }
+
+        function applyCustomTheme(customTheme) {
+            if (!customTheme) return;
+            previewCustomTheme = customTheme;
+            previewTheme = customTheme.id;
+            root.setAttribute('data-theme', customTheme.baseTheme || 'dark');
+            root.style.setProperty('--bg-dark', customTheme.background);
+            root.style.setProperty('--primary-color', customTheme.primary);
+            root.style.setProperty('--accent-color', customTheme.accent);
+            root.style.setProperty('--secondary-color', customTheme.accent);
+            updateThemeSelectionUI(customTheme.id);
+            if (customThemeGrid) customThemeGrid.querySelectorAll('.custom-theme-card').forEach(card => card.classList.toggle('selected', card.dataset.themeId === customTheme.id));
+        }
+
+        function renderCustomThemes() {
+            if (!customThemeGrid) return;
+            customThemeGrid.innerHTML = '';
+            customThemes.forEach(customTheme => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'theme-card-container custom-theme-card';
+                wrapper.dataset.themeId = customTheme.id;
+                wrapper.dataset.themeName = customTheme.name.toLowerCase();
+                wrapper.innerHTML = `<div class="theme-card"><div class="theme-palette"><div class="bg-swatch" style="background:${customTheme.background}"></div><div class="primary-swatch" style="background:${customTheme.primary}"></div><div class="secondary-swatch" style="background:${customTheme.accent}"></div></div><div class="theme-name-label">${customTheme.name}</div><div class="custom-theme-badge">Custom Theme</div></div>`;
+                wrapper.addEventListener('click', () => { applyCustomTheme(customTheme); playTone(600, 'sine', 0.05); });
+                customThemeGrid.appendChild(wrapper);
+            });
+            if (customThemeEmpty) customThemeEmpty.hidden = customThemes.length > 0;
+        }
+
+        function switchThemeTab(tab) {
+            activeThemeTab = tab;
+            const isCustom = tab === 'custom';
+            if (builtInThemesTab) { builtInThemesTab.classList.toggle('active', !isCustom); builtInThemesTab.setAttribute('aria-selected', String(!isCustom)); }
+            if (customThemesTab) { customThemesTab.classList.toggle('active', isCustom); customThemesTab.setAttribute('aria-selected', String(isCustom)); }
+            const builtInGrid = document.querySelector('#themeModal > .modal-content > .theme-grid:not(.custom-theme-grid)');
+            if (builtInGrid) builtInGrid.hidden = isCustom;
+            if (customThemeGrid) customThemeGrid.hidden = !isCustom;
+            if (themeSearchInput) themeSearchInput.value = '';
+            renderCustomThemes();
+            filterThemes();
+        }
 
         function setTheme(theme) {
             root.setAttribute('data-theme', theme);
@@ -20404,16 +20645,157 @@
             });
         }
 
-        setTheme(currentTheme);
+        const initialCustomTheme = customThemes.find(theme => theme.id === currentTheme);
+        if (initialCustomTheme) applyCustomTheme(initialCustomTheme); else setTheme(currentTheme);
+        renderCustomThemes();
+
+        const parentThemeCloseBtn = document.getElementById('parentThemeCloseBtn');
+        if (parentThemeCloseBtn) parentThemeCloseBtn.addEventListener('click', () => { parentThemeModal.classList.remove('show'); clearParentOverrides(); playTone(300, 'sine', 0.08); });
 
         if (themeSelectorBtn) {
             themeSelectorBtn.addEventListener('click', () => {
                 previewTheme = currentTheme;
-                setTheme(previewTheme);
+                const selectedCustomTheme = customThemes.find(theme => theme.id === currentTheme);
+                if (selectedCustomTheme) { applyCustomTheme(selectedCustomTheme); switchThemeTab('custom'); }
+                else { previewCustomTheme = null; setTheme(previewTheme); switchThemeTab('built-in'); }
                 themeModal.classList.add('show');
                 playTone(400, 'sine', 0.1);
             });
         }
+
+        if (themeSearchInput) themeSearchInput.addEventListener('input', filterThemes);
+        if (builtInThemesTab) builtInThemesTab.addEventListener('click', () => { switchThemeTab('built-in'); playTone(420, 'sine', 0.05); });
+        if (customThemesTab) customThemesTab.addEventListener('click', () => { switchThemeTab('custom'); playTone(520, 'sine', 0.05); });
+
+        // Parent Theme Hub: additive tools built on the existing theme cards.
+        const parentThemeBtn = document.getElementById('parentThemeBtn');
+        const parentThemeHub = document.getElementById('parentThemeHub');
+        const parentFeaturePanels = document.querySelectorAll('[data-parent-panel]');
+        const parentFeatureCards = document.querySelectorAll('[data-parent-feature]');
+        const parentBackButtons = document.querySelectorAll('[data-parent-back]');
+        const parentThemeContent = document.querySelector('#parentThemeModal .modal-content');
+        const parentThemeModal = document.getElementById('parentThemeModal');
+        const parentThemeNames = [...themeCards].map(card => ({ id: card.dataset.themeId, name: card.querySelector('.theme-name-label')?.textContent.trim() || card.dataset.themeId }));
+
+        function populateParentThemeSelect(select) {
+            if (!select || select.options.length) return;
+            parentThemeNames.forEach(theme => select.add(new Option(theme.name, theme.id)));
+        }
+        function showParentPanel(panelName) {
+            parentThemeHub.classList.toggle('active', !panelName);
+            parentFeaturePanels.forEach(panel => panel.classList.toggle('active', panel.dataset.parentPanel === panelName));
+            parentBackButtons.forEach(button => button.style.display = panelName ? '' : 'none');
+            if (panelName === 'mutation') populateParentThemeSelect(document.getElementById('mutationThemeSelect'));
+            if (panelName === 'dna') { populateParentThemeSelect(document.getElementById('dnaThemeSelect')); updateParentDNA(); }
+        }
+        function closeParentFeature() { showParentPanel(''); }
+        function applyParentPreview(themeId) { previewTheme = themeId; setTheme(themeId); }
+        function clearParentOverrides() { document.documentElement.style.removeProperty('--bg-dark'); document.documentElement.style.removeProperty('--primary-color'); document.documentElement.style.removeProperty('--accent-color'); document.body.classList.remove('parent-boss-glitch', 'parent-boss-invert'); }
+        if (parentThemeBtn) parentThemeBtn.addEventListener('click', () => { closeParentFeature(); parentThemeModal.classList.add('show'); playTone(420, 'sine', 0.1); });
+        parentFeatureCards.forEach(card => card.addEventListener('click', () => { showParentPanel(card.dataset.parentFeature); playTone(600, 'sine', 0.05); }));
+        parentBackButtons.forEach(button => button.addEventListener('click', () => { closeParentFeature(); playTone(300, 'sine', 0.08); }));
+
+        const mutationApplyBtn = document.getElementById('mutationApplyBtn');
+        if (mutationApplyBtn) mutationApplyBtn.addEventListener('click', () => { const select = document.getElementById('mutationThemeSelect'); const color = document.getElementById('mutationColor').value; applyParentPreview(select.value); document.documentElement.style.setProperty('--primary-color', color); document.getElementById('mutationResult').textContent = `Previewing a mutation of ${select.options[select.selectedIndex].text}. Confirm it in Themes to keep the base theme.`; playTone(700, 'sine', 0.08); });
+        const mutationCommitBtn = document.getElementById('mutationCommitBtn');
+        if (mutationCommitBtn) mutationCommitBtn.addEventListener('click', () => { const select = document.getElementById('mutationThemeSelect'); clearParentOverrides(); applyParentPreview(select.value); currentTheme = select.value; localStorage.setItem('theme', currentTheme); document.getElementById('mutationResult').textContent = `Applied ${select.options[select.selectedIndex].text}.`; playTone(820, 'sine', 0.1); });
+        const rouletteSpinBtn = document.getElementById('rouletteSpinBtn');
+        const rouletteApplyBtn = document.getElementById('rouletteApplyBtn');
+        let rouletteSelection;
+        if (rouletteSpinBtn) rouletteSpinBtn.addEventListener('click', () => {
+            rouletteSpinBtn.disabled = true;
+            rouletteSpinBtn.classList.add('roulette-spinning');
+            if (rouletteApplyBtn) rouletteApplyBtn.disabled = true;
+            let ticks = 0;
+            const rouletteTimer = setInterval(() => {
+                rouletteSelection = themeCards[Math.floor(Math.random() * themeCards.length)];
+                applyParentPreview(rouletteSelection.dataset.themeId);
+                document.getElementById('rouletteResult').textContent = `Spinning… ${rouletteSelection.querySelector('.theme-name-label').textContent.trim()}`;
+                playTone(520 + (ticks % 4) * 80, 'square', 0.035, 0.03);
+                ticks++;
+                if (ticks >= 18) {
+                    clearInterval(rouletteTimer);
+                    rouletteSpinBtn.disabled = false;
+                    rouletteSpinBtn.classList.remove('roulette-spinning');
+                    if (rouletteApplyBtn) rouletteApplyBtn.disabled = false;
+                    document.getElementById('rouletteResult').textContent = `Winner: ${rouletteSelection.querySelector('.theme-name-label').textContent.trim()}. Click Apply Selected Theme to keep it.`;
+                    playTone(900, 'sine', 0.12);
+                }
+            }, isPerformanceMode ? 80 : 120);
+        });
+        if (rouletteApplyBtn) rouletteApplyBtn.addEventListener('click', () => { if (!rouletteSelection) return; clearParentOverrides(); currentTheme = rouletteSelection.dataset.themeId; localStorage.setItem('theme', currentTheme); applyParentPreview(currentTheme); document.getElementById('rouletteResult').textContent = `Applied ${rouletteSelection.querySelector('.theme-name-label').textContent.trim()}.`; playTone(850, 'sine', 0.1); });
+        const universeRegions = document.getElementById('universeRegions');
+        if (universeRegions) { const regions = [['Classic', 'retro'], ['Desktop', 'windows'], ['Console', 'ps'], ['Future', 'neon'], ['Nature', 'forest']]; regions.forEach(([label, query]) => { const button = document.createElement('button'); button.className = 'modal-btn secondary'; button.textContent = label; button.addEventListener('click', () => { if (themeSearchInput) themeSearchInput.value = query; filterThemes(); document.getElementById('universeResult').textContent = `Showing the ${label} region in the existing Theme Selector.`; themeModal.classList.add('show'); parentThemeModal.classList.remove('show'); }); universeRegions.appendChild(button); }); }
+        let universeSelectedTheme;
+        const universeMap = document.getElementById('universeMap');
+        const universeApplyBtn = document.getElementById('universeApplyBtn');
+        if (universeMap) {
+            const regions = [['Classic', 'retro', '20%', '22%'], ['Desktop', 'windows', '80%', '22%'], ['Console', 'ps', '84%', '76%'], ['Future', 'neon', '50%', '84%'], ['Nature', 'forest', '16%', '76%']];
+            regions.forEach(([label, query, left, top]) => {
+                const node = document.createElement('button');
+                node.className = 'modal-btn secondary universe-node'; node.textContent = label; node.style.left = left; node.style.top = top; node.title = `Explore ${label} themes`;
+                node.addEventListener('click', () => {
+                    const matches = [...themeCards].filter(card => card.querySelector('.theme-name-label')?.textContent.toLowerCase().includes(query));
+                    universeSelectedTheme = matches[0] || themeCards[0];
+                    document.querySelectorAll('.universe-node').forEach(item => item.classList.remove('selected')); node.classList.add('selected');
+                    if (universeApplyBtn) universeApplyBtn.disabled = !universeSelectedTheme;
+                    document.getElementById('universeResult').textContent = `${label} region selected: ${universeSelectedTheme?.querySelector('.theme-name-label')?.textContent.trim() || 'No matching theme'}.`;
+                    playTone(600, 'sine', 0.06);
+                });
+                universeMap.appendChild(node);
+            });
+        }
+        if (universeApplyBtn) universeApplyBtn.addEventListener('click', () => { if (!universeSelectedTheme) return; clearParentOverrides(); currentTheme = universeSelectedTheme.dataset.themeId; localStorage.setItem('theme', currentTheme); applyParentPreview(currentTheme); document.getElementById('universeResult').textContent = `Applied ${universeSelectedTheme.querySelector('.theme-name-label').textContent.trim()}.`; playTone(820, 'sine', 0.1); });
+        document.querySelectorAll('[data-time-query]').forEach(button => button.addEventListener('click', () => { if (themeSearchInput) themeSearchInput.value = button.dataset.timeQuery; filterThemes(); themeModal.classList.add('show'); parentThemeModal.classList.remove('show'); playTone(520, 'sine', 0.08); }));
+        const labColorChannel = document.getElementById('labColorChannel');
+        const labColorPicker = document.getElementById('labColorPicker');
+        const labColorSwatch = document.getElementById('labColorSwatch');
+        const labColorValue = document.getElementById('labColorValue');
+        const labSvArea = document.getElementById('labSvArea');
+        const labSvKnob = document.getElementById('labSvKnob');
+        const labHueSlider = document.getElementById('labHueSlider');
+        const labHexInput = document.getElementById('labHexInput');
+        const labRgbInput = document.getElementById('labRgbInput');
+        let labPalette = { background: '#0f0f1e', primary: '#5986da', accent: '#ffd93d' };
+        try { labPalette = { ...labPalette, ...JSON.parse(localStorage.getItem('ugsCustomTheme') || '{}') }; } catch (error) {}
+        function labCurrentColor() { return labPalette[labColorChannel.value] || '#5986da'; }
+        function updateLabColorUI(color) {
+            const hsv = rgbToHsv(hexToRgb(color));
+            if (labColorPicker) labColorPicker.value = color;
+            if (labColorSwatch) labColorSwatch.style.background = color;
+            if (labColorValue) labColorValue.textContent = color.toUpperCase();
+            if (labHexInput) labHexInput.value = color.toUpperCase();
+            if (labRgbInput) { const rgb = hexToRgb(color); labRgbInput.value = `${rgb.r}, ${rgb.g}, ${rgb.b}`; }
+            if (labHueSlider) labHueSlider.value = hsv.h;
+            if (labSvArea) labSvArea.style.background = `linear-gradient(to bottom, transparent, #000), linear-gradient(to right, #fff, hsl(${hsv.h} 100% 50%))`;
+            if (labSvKnob) { labSvKnob.style.left = `${hsv.s * 100}%`; labSvKnob.style.top = `${(1 - hsv.v) * 100}%`; }
+        }
+        function setLabColor(color) { if (/^#[0-9a-f]{6}$/i.test(color)) { labPalette[labColorChannel.value] = color.toLowerCase(); updateLabColorUI(labPalette[labColorChannel.value]); } }
+        if (labColorChannel) labColorChannel.addEventListener('change', () => updateLabColorUI(labCurrentColor()));
+        if (labColorPicker) labColorPicker.addEventListener('input', () => setLabColor(labColorPicker.value));
+        if (labHueSlider) labHueSlider.addEventListener('input', () => { const hsv = rgbToHsv(hexToRgb(labCurrentColor())); setLabColor(hsvToHex(Number(labHueSlider.value), hsv.s, hsv.v)); playTone(340, 'sine', 0.025, 0.02); });
+        if (labSvArea) { let labDraggingSv = false; const setLabSvFromPointer = event => { const rect = labSvArea.getBoundingClientRect(); const s = Math.max(0, Math.min(1, (event.clientX - rect.left) / rect.width)); const v = Math.max(0, Math.min(1, 1 - (event.clientY - rect.top) / rect.height)); const hsv = rgbToHsv(hexToRgb(labCurrentColor())); setLabColor(hsvToHex(hsv.h, s, v)); }; labSvArea.addEventListener('pointerdown', event => { labDraggingSv = true; labSvArea.setPointerCapture(event.pointerId); setLabSvFromPointer(event); playTone(340, 'sine', 0.025, 0.02); }); labSvArea.addEventListener('pointermove', event => { if (labDraggingSv) setLabSvFromPointer(event); }); labSvArea.addEventListener('pointerup', () => { labDraggingSv = false; }); }
+        if (labHexInput) labHexInput.addEventListener('change', () => { const value = labHexInput.value.trim(); if (/^#[0-9a-f]{6}$/i.test(value)) setLabColor(value); else labHexInput.value = labCurrentColor().toUpperCase(); });
+        if (labRgbInput) labRgbInput.addEventListener('change', () => { const values = labRgbInput.value.split(',').map(value => Number(value.trim())); if (values.length === 3 && values.every(value => Number.isInteger(value) && value >= 0 && value <= 255)) setLabColor(`#${values.map(value => value.toString(16).padStart(2, '0')).join('')}`); else { const rgb = hexToRgb(labCurrentColor()); labRgbInput.value = `${rgb.r}, ${rgb.g}, ${rgb.b}`; } });
+        updateLabColorUI(labCurrentColor());
+        const labApplyBtn = document.getElementById('labApplyBtn');
+        if (labApplyBtn) labApplyBtn.addEventListener('click', () => { const rootStyle = document.documentElement.style; rootStyle.setProperty('--bg-dark', labPalette.background); rootStyle.setProperty('--primary-color', labPalette.primary); rootStyle.setProperty('--accent-color', labPalette.accent); document.getElementById('labResult').textContent = 'Custom palette preview applied locally.'; playTone(680, 'sine', 0.08); });
+        const labSaveBtn = document.getElementById('labSaveBtn');
+        if (labSaveBtn) labSaveBtn.addEventListener('click', () => { const nameInput = document.getElementById('labThemeName'); const name = (nameInput?.value || '').trim() || `Custom Theme ${customThemes.length + 1}`; const customTheme = { id: `custom-${Date.now()}`, name, ...labPalette, baseTheme: currentTheme.startsWith('custom-') ? 'dark' : currentTheme }; customThemes.push(customTheme); localStorage.setItem('ugsCustomThemes', JSON.stringify(customThemes)); localStorage.setItem('ugsCustomTheme', JSON.stringify(labPalette)); renderCustomThemes(); document.getElementById('labResult').textContent = `${name} saved in Custom Themes.`; if (nameInput) nameInput.value = ''; playTone(760, 'sine', 0.08); });
+        function updateParentDNA() { const select = document.getElementById('dnaThemeSelect'); if (!select || !select.value) return; const card = document.querySelector(`.theme-card-container[data-theme-id="${CSS.escape(select.value)}"] .theme-card`); const swatches = card ? card.querySelectorAll('.theme-palette > div') : []; const output = document.getElementById('dnaSwatches'); output.innerHTML = ''; [...swatches].forEach(swatch => { const span = document.createElement('span'); span.style.background = getComputedStyle(swatch).backgroundColor; output.appendChild(span); }); document.getElementById('dnaResult').textContent = select.options[select.selectedIndex]?.text || ''; }
+        const dnaThemeSelect = document.getElementById('dnaThemeSelect');
+        if (dnaThemeSelect) dnaThemeSelect.addEventListener('change', updateParentDNA);
+        const dnaApplyBtn = document.getElementById('dnaApplyBtn');
+        if (dnaApplyBtn) dnaApplyBtn.addEventListener('click', () => { if (!dnaThemeSelect?.value) return; clearParentOverrides(); currentTheme = dnaThemeSelect.value; localStorage.setItem('theme', currentTheme); applyParentPreview(currentTheme); document.getElementById('dnaResult').textContent = `Applied ${dnaThemeSelect.options[dnaThemeSelect.selectedIndex].text}.`; playTone(820, 'sine', 0.1); });
+        document.querySelectorAll('[data-boss-mode]').forEach(button => button.addEventListener('click', () => { clearParentOverrides(); document.body.classList.add(`parent-boss-${button.dataset.bossMode}`); document.getElementById('bossResult').textContent = `${button.textContent} activated cosmetically.`; playTone(820, 'sawtooth', 0.08); }));
+        const bossResetBtn = document.getElementById('bossResetBtn');
+        if (bossResetBtn) bossResetBtn.addEventListener('click', () => { clearParentOverrides(); document.getElementById('bossResult').textContent = 'Cosmetic effects reset.'; playTone(300, 'sine', 0.08); });
+        const osRefreshBtn = document.getElementById('osRefreshBtn');
+        if (osRefreshBtn) osRefreshBtn.addEventListener('click', () => { osRefreshBtn.textContent = 'Desktop Refreshed'; playTone(500, 'sine', 0.06); });
+        const bootPreviewBtn = document.getElementById('bootPreviewBtn');
+        if (bootPreviewBtn) bootPreviewBtn.addEventListener('click', () => { const boot = document.getElementById('parentThemeBoot'); boot.classList.add('show'); boot.setAttribute('aria-hidden', 'false'); playTone(440, 'square', 0.12); setTimeout(() => { boot.classList.remove('show'); boot.setAttribute('aria-hidden', 'true'); }, 1800); });
+        const aiGenerateBtn = document.getElementById('aiGenerateBtn');
+        if (aiGenerateBtn) aiGenerateBtn.addEventListener('click', () => { const prompt = document.getElementById('aiThemePrompt').value.toLowerCase(); const colors = prompt.includes('ocean') ? ['#061826', '#00a8cc', '#7fdbff'] : prompt.includes('forest') ? ['#07150c', '#2e8b57', '#9acd32'] : prompt.includes('sunset') ? ['#24101c', '#ff6b6b', '#ffd93d'] : ['#0f0f1e', '#5986da', '#ffd93d']; document.getElementById('aiResult').textContent = `Local configuration: background ${colors[0]}, primary ${colors[1]}, accent ${colors[2]}.`; playTone(620, 'sine', 0.08); });
 
         themeCards.forEach(card => {
             card.addEventListener('click', () => {
@@ -20425,7 +20807,8 @@
 
         if (themeConfirmBtn) {
             themeConfirmBtn.addEventListener('click', () => {
-                currentTheme = previewTheme;
+                if (previewCustomTheme) { currentTheme = previewCustomTheme.id; applyCustomTheme(previewCustomTheme); }
+                else { currentTheme = previewTheme; setTheme(currentTheme); }
                 localStorage.setItem('theme', currentTheme);
                 themeModal.classList.remove('show');
                 playTone(800, 'sine', 0.1);
@@ -20435,7 +20818,8 @@
         if (themeBackBtn) {
             themeBackBtn.addEventListener('click', () => {
                 previewTheme = currentTheme;
-                setTheme(currentTheme);
+                const savedCustomTheme = customThemes.find(theme => theme.id === currentTheme);
+                if (savedCustomTheme) applyCustomTheme(savedCustomTheme); else { previewCustomTheme = null; setTheme(currentTheme); }
                 themeModal.classList.remove('show');
                 playTone(300, 'sine', 0.1);
             });
@@ -20675,7 +21059,12 @@
             if (e.target.classList.contains('modal')) {
                 e.target.classList.remove('show');
                 if (e.target.id === 'themeModal') {
-                    setTheme(currentTheme); 
+                    const savedCustomTheme = customThemes.find(theme => theme.id === currentTheme);
+                    if (savedCustomTheme) applyCustomTheme(savedCustomTheme); else { previewCustomTheme = null; setTheme(currentTheme); }
+                }
+                if (e.target.id === 'parentThemeModal') {
+                    closeParentFeature();
+                    clearParentOverrides();
                 }
                 if (e.target.id === 'settingsModal') {
                     previewCursorColor = savedCursorColor || cursorDefaultColor;
