@@ -6,7 +6,7 @@
  ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
  ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
  ![License](https://img.shields.io/badge/License-See%20Disclaimer-lightgrey)
- ![Themes](https://img.shields.io/badge/Themes-136%2B-purple)
+ ![Themes](https://img.shields.io/badge/Themes-1000+%2B-purple)
  ![Responsive](https://img.shields.io/badge/Responsive-Yes-blueviolet)
  ![Performance Mode](https://img.shields.io/badge/Performance%20Mode-Supported-orange)
  ![Music](https://img.shields.io/badge/Background%20Music-Supported-pink)
